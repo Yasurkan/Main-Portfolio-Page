@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Furkan Alkan — Werk, Spiel, Schatten</title>
+  <meta name="description" content="Portfolio von Furkan Alkan. Solo-Operator zwischen Code, Klang und Kommerz." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       FURKAN ALKAN — Portfolio v1
+       Tausche die --brand-* Variablen gegen deine echten Hex-Werte.
+       ============================================================ */
+
+    :root {
+      /* === SURFACES === */
+      --bg-deep: #08080c;
+      --bg-base: #0f0f15;
+      --bg-card: #16161e;
+      --bg-card-elev: #1d1d28;
+
+      /* === TEXT === */
+      --text-primary: #f5f3ee;
+      --text-secondary: #a8a6a0;
+      --text-tertiary: #6a6864;
+      --text-quaternary: #3a3833;
+
+      /* === BRAND PLACEHOLDERS — MIT DEINEM SYSTEM TAUSCHEN === */
+      --brand-handfaktur: #c89968;          /* warm amber/leather */
+      --brand-handfaktur-digital: #5b8def;  /* digital blue */
+      --brand-aikano: #b06bff;              /* music purple */
+      --brand-werkzeug: #9c958a;            /* steel grey-tan */
+      --brand-academic: #e8e0d0;            /* paper white */
+      --brand-experimental: #58e6c9;        /* signal cyan */
+      --brand-infra: #ff7a5c;               /* signal orange */
+      --brand-peace: #f0d9b5;               /* warm cream */
+      --brand-system: #d4a8ff;              /* design purple-pink */
+
+      /* === HOLO STOPS === */
+      --holo-1: #ff6ec7;
+      --holo-2: #6ec3ff;
+      --holo-3: #7dffae;
+      --holo-4: #ffd86e;
+      --holo-5: #ff8e6e;
+
+      /* === STRUCTURE === */
+      --border-subtle: rgba(245, 243, 238, 0.08);
+      --border-mid: rgba(245, 243, 238, 0.16);
+
+      /* === MOTION === */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 15px;
+      line-height: 1.55;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* === Atmospheric background === */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(176, 107, 255, 0.09), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(91, 141, 239, 0.07), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 0% 80%, rgba(200, 153, 104, 0.05), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.5'/></svg>");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 1;
+      mix-blend-mode: overlay;
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      min-height: 100vh;
+      padding: clamp(1.25rem, 3vw, 2.5rem);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 2rem;
+      position: relative;
+    }
+
+    .hero-top,
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-tertiary);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero-top span:last-child::before {
+      content: "●";
+      color: var(--brand-experimental);
+      margin-right: 0.5em;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.25; }
+    }
+
+    .hero-center {
+      display: grid;
+      align-content: center;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .hero-name {
+      font-family: "Fraunces", serif;
+      font-variation-settings: "opsz" 144, "SOFT" 100;
+      font-weight: 300;
+      font-size: clamp(3rem, 13vw, 11rem);
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      color: var(--text-primary);
+    }
+
+    .hero-name em {
+      font-style: italic;
+      font-weight: 400;
+      background: linear-gradient(135deg, var(--holo-1) 0%, var(--holo-2) 50%, var(--holo-3) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .hero-tagline {
+      margin-top: clamp(1.5rem, 3vw, 2.5rem);
+      max-width: 640px;
+      font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    .hero-tagline strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: clamp(1rem, 3vw, 2rem);
+      flex-wrap: wrap;
+    }
+
+    .hero-meta div span {
+      color: var(--text-primary);
+      margin-left: 0.5em;
+    }
+
+    .scroll-indicator {
+      writing-mode: vertical-rl;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .scroll-indicator::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--text-tertiary), transparent);
+      animation: scrollHint 2.4s ease-in-out infinite;
+    }
+
+    @keyframes scrollHint {
+      0%, 100% { transform: scaleY(0.4); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+    }
+
+    /* ============================================================
+       SECTIONS
+       ============================================================ */
+    .section {
+      padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 3vw, 2.5rem);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: clamp(1.5rem, 4vw, 4rem);
+      align-items: end;
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-number {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: "Fraunces", serif;
+      font-variation-settings: "opsz" 144;
+      font-weight: 300;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+
+    .section-title em {
+      font-style: italic;
+    }
+
+    .section-description {
+      max-width: 520px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       CARD GRID
+       ============================================================ */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+      gap: clamp(1rem, 2vw, 1.5rem);
+      perspective: 1500px;
+    }
+
+    .card {
+      aspect-ratio: 5 / 7;
+      cursor: pointer;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s var(--ease-out-expo);
+      will-change: transform;
+      --mx: 50;
+      --my: 50;
+      --rx: 0;
+      --ry: 0;
+    }
+
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card:hover:not(.flipped) {
+      transform:
+        rotateX(calc(var(--ry) * -0.08deg))
+        rotateY(calc(var(--rx) * 0.08deg))
+        translateY(-6px);
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: clamp(1.25rem, 2vw, 1.75rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .card-front {
+      background:
+        linear-gradient(
+          145deg,
+          color-mix(in srgb, var(--card-color, white) 10%, var(--bg-card)) 0%,
+          var(--bg-card) 55%,
+          var(--bg-deep) 100%
+        );
+    }
+
+    /* Holo overlay (cursor-tracked highlight) */
+    .card-front::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle 280px at calc(var(--mx) * 1%) calc(var(--my) * 1%),
+        rgba(255, 255, 255, 0.18),
+        transparent 55%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Holo overlay (iridescent rainbow) */
+    .card-front::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: conic-gradient(
+        from calc(var(--mx) * 3.6deg) at 50% 50%,
+        var(--holo-1),
+        var(--holo-2),
+        var(--holo-3),
+        var(--holo-4),
+        var(--holo-5),
+        var(--holo-1)
+      );
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      mix-blend-mode: color-dodge;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .card:hover:not(.flipped) .card-front::before {
+      opacity: 1;
+    }
+    .card:hover:not(.flipped) .card-front::after {
+      opacity: 0.32;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background:
+        linear-gradient(
+          145deg,
+          color-mix(in srgb, var(--card-color, white) 18%, var(--bg-card)) 0%,
+          var(--bg-card) 75%
+        );
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--card-color, var(--text-tertiary));
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    .card-tag::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--card-color, var(--text-tertiary));
+      box-shadow: 0 0 10px var(--card-color, transparent);
+    }
+
+    .card-title {
+      font-family: "Fraunces", serif;
+      font-variation-settings: "opsz" 72;
+      font-weight: 400;
+      font-size: clamp(1.4rem, 1.8vw, 1.7rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-top: 0.75rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    .card-title em {
+      font-style: italic;
+      color: var(--card-color, var(--text-primary));
+    }
+
+    .card-meta {
+      font-size: 0.78rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      position: relative;
+      z-index: 3;
+    }
+
+    .card-flip-hint {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      align-self: end;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      position: relative;
+      z-index: 3;
+      margin-top: auto;
+    }
+
+    .card-flip-hint::after {
+      content: "↻";
+      font-size: 0.95rem;
+      transition: transform 0.5s var(--ease-out-expo);
+    }
+
+    .card:hover:not(.flipped) .card-flip-hint::after {
+      transform: rotate(180deg);
+    }
+
+    /* Back face */
+    .card-back-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .card-back-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--card-color, var(--text-tertiary));
+    }
+
+    .card-back-title {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-variation-settings: "opsz" 72;
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      max-width: 80%;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75em;
+      padding: 0.85em 1.5em;
+      background: var(--card-color, var(--text-primary));
+      color: var(--bg-deep);
+      border-radius: 999px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+    }
+
+    .card-cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px color-mix(in srgb, var(--card-color, white) 50%, transparent);
+    }
+
+    .card-cta::after {
+      content: "→";
+      transition: transform 0.3s ease;
+    }
+
+    .card-cta:hover::after {
+      transform: translateX(3px);
+    }
+
+    .card-flip-back {
+      background: none;
+      border: 1px solid var(--border-mid);
+      border-radius: 999px;
+      color: var(--text-tertiary);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0.6em 1.2em;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card-flip-back:hover {
+      color: var(--text-primary);
+      border-color: var(--border-mid);
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      padding: clamp(4rem, 8vw, 6rem) clamp(1.25rem, 3vw, 2.5rem) 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      align-items: end;
+    }
+
+    .footer-headline {
+      font-family: "Fraunces", serif;
+      font-variation-settings: "opsz" 144;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    .footer-headline em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--holo-2), var(--holo-1));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-contact-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-contact a {
+      color: var(--text-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-mid);
+      transition: border-color 0.3s ease, color 0.3s ease;
+      width: fit-content;
+    }
+
+    .footer-contact a:hover {
+      color: var(--brand-aikano);
+      border-color: var(--brand-aikano);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-tertiary);
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* ============================================================
+       ENTRANCE ANIMATIONS
+       ============================================================ */
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero > * {
+      opacity: 0;
+      animation: riseIn 1s var(--ease-out-expo) forwards;
+    }
+    .hero > .hero-top { animation-delay: 0.05s; }
+    .hero > .hero-center { animation-delay: 0.2s; }
+    .hero > .hero-bottom { animation-delay: 0.45s; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition:
+        opacity 0.9s var(--ease-out-expo),
+        transform 0.9s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 900px) {
+      .section-header {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        aspect-ratio: 4 / 5;
+        max-width: 380px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .scroll-indicator {
+        display: none;
+      }
+      .hero-name {
+        line-height: 0.92;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero">
+      <div class="hero-top">
+        <span>Furkan Alkan · Index</span>
+        <span>Wuppertal · 2026</span>
+      </div>
+
+      <div class="hero-center">
+        <h1 class="hero-name">
+          Werk<br />
+          Spiel<br />
+          <em>Schatten.</em>
+        </h1>
+        <p class="hero-tagline">
+          <strong>Solo-Operator zwischen Code, Klang und Kommerz.</strong>
+          Multibrand-Architekt, Kleinunternehmer, AI-Music-Label im Eigenbau.
+          Diese Seite ist <strong>Inventar</strong> — was ich gebaut, gespielt
+          und ungesehen liegen gelassen habe.
+        </p>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-meta">
+          <div>Index<span>10</span></div>
+          <div>Kategorien<span>3</span></div>
+          <div>Status<span>Live</span></div>
+        </div>
+        <div class="scroll-indicator">Scroll</div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WERK
+         ============================================================ -->
+    <section class="section" id="werk">
+      <header class="section-header reveal">
+        <div>
+          <div class="section-number">01 — Werk</div>
+          <h2 class="section-title"><em>Werk</em></h2>
+        </div>
+        <p class="section-description">
+          Was Geld verdient, was Bestand hat, was ausgeliefert wurde.
+          Marken, Mandate, fundierte Arbeit.
+        </p>
+      </header>
+
+      <div class="grid">
+
+        <!-- 01 Handfaktur Shop -->
+        <article class="card reveal" style="--card-color: var(--brand-handfaktur);" data-card>
+          <div class="card-face card-front">
+            <div>
+              <div class="card-tag">Werk · 01</div>
+              <h3 class="card-title">Handfaktur <em>Shop</em></h3>
+            </div>
+            <p class="card-meta">
+              Apparel- &amp; Print-on-Demand-Brand. Eigener Shopify-Store,
+              Designs, Produktion und Operations in Personalunion.
+            </p>
+            <div class="card-flip-hint">Flip</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-back-content">
+              <div class="card-back-label">Handfaktur Shop</div>
+              <div class="card-back-title">Apparel · Shopify · 2024 —</div>
+              <a class="card-cta" href="#" target="_blank" rel="noopener">Besuchen</a>
+              <button class="card-flip-back" data-flip-back>Zurück</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 Handfaktur Digital -->
+        <article class="card reveal" style="--card-color: var(--brand-handfaktur-digital);" data-card>
+          <div class="card-face card-front">
+            <div>
+              <div class="card-tag">Werk · 02</div>
+              <h3 class="card-title">Handfaktur <em>Digital</em></h3>
+            </div>
+            <p class="card-meta">
+              Digitale Dienste für SMBs — Google Business Profile,
+              Websites, Google Ads. Handwerk trifft Digital.
+            </p>
+            <div class="card-flip-hint">Flip</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-back-content">
+              <div class="card-back-label">Handfaktur Digital</div>
+              <div class="card-back-title">SMB Services · DACH · 2024 —</div>
+              <a class="card-cta" href="#" target="_blank" rel="noopener">Anfragen</a>
+              <button class="card-flip-back" data-flip-back>Zurück</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 Wirtschaftspsychologie B.A. -->
+        <article class="card reveal" style="--card-color: var(--brand-academic);" data-card>
+          <div class="card-face card-front">
+            <div>
+              <div class="card-tag">Werk · 03</div>
+              <h3 class="card-title">Wirtschafts<em>psychologie</em> B.A.</h3>
+            </div>
+            <p class="card-meta">
+              Projektzertifikat zur C-Suite-Rollenbesetzung.
+              Bachelorthese: Battle&nbsp;Pass als Verkaufskonzept.
+            </p>
+            <div class="card-flip-hint">Flip</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-back-content">
+              <div class="card-back-label">Bachelor of Arts</div>
+              <div class="card-back-title">Forschung · Strategie · Konsum­psychologie</div>
+              <a class="card-cta" href="#" target="_blank" rel="noopener">These ansehen</a>
+              <button class="card-flip-back" data-flip-back>Zurück</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 Aikano Records -->
+        <article class="card reveal" style="--card-color: var(--brand-aikano);" data-card>
+          <div class="card-face card-front">
+            <div>
+              <div class="card-tag">Werk · 04</div>
+              <h3 class="card-title">Aikano <em>Records</em></h3>
+            </div>
+            <p class="card-meta">
+              AI-Music-Label. Konzeptalben mit fiktiven Künstlerpersonas —
+              Jonas True, Luis Soul, Monara. Eigenständiges Universum.
+            </p>
+            <div class="card-flip-hint">Flip</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-back-content">
+              <div class="card-back-label">Aikano Records</div>
+              <div class="card-back-title">AI Music Label · Konzeptalben · 2023 —</div>
+              <a class="card-cta" href="#" target="_blank" rel="noopener">Releases</a>
+              <button class="card-flip-back" data-flip-back>Zurück</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SPIEL
+         ============================================================ -->
+    <section class="section" id="spiel">
+      <header class="section-header reveal">
+        <div>
+          <div class="section-number">02 — Spiel</div>
+          <h2 class="section-title"><em>Spiel</em></h2>
+        </div>
+        <p class="section-description">
+          Was aus Neugier entsteht. Versuche, Werkzeuge,
+          Eigenbau zwischen Hobby und Strategie.
+        </p>
+      </header>
+
+      <div class="grid">
+
+        <!-- 05 Chunkplan -->
+        <article class="card reveal" style="--card-color: var(--brand-experimental);" data-card>
+          <div class="card-face card-front">
+            <div>
+              <div class="card-tag">Spiel · 05</div>
+              <h3 class="card-title">Chunkplan <em>App</em></h3>
+            </div>
+            <p class="card-meta">
+              Flutter-Android-App. Zeit in Chunks geplant, getrackt, gelebt.
+              Freemium + €2/Monat. Home-Screen-Widget inklusive.
+            </p>
+            <div class="card-flip-hint">Flip</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-back-content">
+              <div class="card-back-label">Chunkplan Diary</div>
+              <div class="card-back-title">Flutter · sqflite · 2025 —</div>
+              <a class="card-cta" href="#" target="_blank" rel="noopener">Play Store</a>
+              <button class="card-flip-back" data-flip-back>Zurück</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 06 Voice AI Agent -->
+        <article class="card reveal" style="--card-color: var(--brand-infra);" data-card>
+          <div class="card-face card-front">
+            <div>
+              <div class="card-tag">Spiel · 06 · WIP</div>
+              <h3 class="card-title">Voice <em>Agent</em></h3>
+            </div>
+            <p class="card-meta">
+              B2B-Outbound mit Stimme. Twilio + LiveKit + Deepgram + Claude
+              + n8n. Conversation Engine für Handfaktur Digital.
+            </p>
+            <div class="card-flip-hint">Flip</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-back-content">
+              <div class="card-back-label">Voice AI Agent</div>
+              <div class="card-back-title">In aktivem Sprint</div>
+              <a class="card-cta" href="#" target="_blank" rel="noopener">Notes</a>
+              <button class="card-flip-back" data-flip-back>Zurück</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 07 Color System -->
+        <article class="card reveal" style="--card-color: var(--brand-system);" data-card>
+          <div class="card-face card-front">
+            <div>
+              <div class="card-tag">Spiel · 07</div>
+              <h3 class="card-title">Color <em>System</em></h3>
+            </div>
+            <p class="card-meta">
+              Multi-Brand-Farbsystem. Locked Hue, variable Saturation
+              &amp; Lightness, 4-Tier-Familien Base → Soft → Mid → Deep.
+            </p>
+            <div class="card-flip-hint">Flip</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-back-content">
+              <div class="card-back-label">Brand Color System</div>
+              <div class="card-back-title">Methodik · Tokens · Anwendung</div>
+              <a class="card-cta" href="#" target="_blank" rel="noopener">Case Study</a>
+              <button class="card-flip-back" data-flip-back>Zurück</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SCHATTEN
+         ============================================================ -->
+    <section class="section" id="schatten">
+      <header class="section-header reveal">
+        <div>
+          <div class="section-number">03 — Schatten</div>
+          <h2 class="section-title"><em>Schatten</em></h2>
+        </div>
+        <p class="section-description">
+          Was niemand fragt, aber alles ermöglicht.
+          Infrastruktur, Wurzeln, Material das im Werden ist.
+        </p>
+      </header>
+
+      <div class="grid">
+
+        <!-- 08 Self-hosted Infra -->
+        <article class="card reveal" style="--card-color: var(--brand-werkzeug);" data-card>
+          <div class="card-face card-front">
+            <div>
+              <div class="card-tag">Schatten · 08</div>
+              <h3 class="card-title">Self-hosted <em>Infra</em></h3>
+            </div>
+            <p class="card-meta">
+              n8n auf eigener VPS. Cloudflare Tunnel + Zero Trust Access,
+              UFW gehärtet, Webhook-Bypass-Policies. Eigentum statt Miete.
+            </p>
+            <div class="card-flip-hint">Flip</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-back-content">
+              <div class="card-back-label">Homelab</div>
+              <div class="card-back-title">n8n · Cloudflare · UFW</div>
+              <a class="card-cta" href="#" target="_blank" rel="noopener">Setup</a>
+              <button class="card-flip-back" data-flip-back>Zurück</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 09 Alkan-Werkzeug -->
+        <article class="card reveal" style="--card-color: var(--brand-werkzeug);" data-card>
+          <div class="card-face card-front">
+            <div>
+              <div class="card-tag">Schatten · 09</div>
+              <h3 class="card-title">Alkan <em>Werkzeug</em></h3>
+            </div>
+            <p class="card-meta">
+              Familien-E-Commerce. Werkzeugzentrum mit AEO-optimierten
+              Produktbeschreibungen. Wurzeln in Wuppertal, Reichweite weltweit.
+            </p>
+            <div class="card-flip-hint">Flip</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-back-content">
+              <div class="card-back-label">Werkzeugzentrum</div>
+              <div class="card-back-title">Familienbetrieb · Tools · seit Jahren</div>
+              <a class="card-cta" href="#" target="_blank" rel="noopener">Shop</a>
+              <button class="card-flip-back" data-flip-back>Zurück</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10 PEACE Album -->
+        <article class="card reveal" style="--card-color: var(--brand-peace);" data-card>
+          <div class="card-face card-front">
+            <div>
+              <div class="card-tag">Schatten · 10 · WIP</div>
+              <h3 class="card-title">PEACE <em>Album</em></h3>
+            </div>
+            <p class="card-meta">
+              Drittes Konzeptalbum unter Aikano. Sechs Tracks in sechs Sprachen —
+              Deutsch, Spanisch, Französisch, Swahili, Aramäisch, Russisch.
+            </p>
+            <div class="card-flip-hint">Flip</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-back-content">
+              <div class="card-back-label">PEACE</div>
+              <div class="card-back-title">In Produktion · 2026</div>
+              <a class="card-cta" href="#" target="_blank" rel="noopener">Snippets</a>
+              <button class="card-flip-back" data-flip-back>Zurück</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="footer">
+      <div class="footer-grid reveal">
+        <h2 class="footer-headline">
+          Wenn etwas widerhallt — <em>schreib mir</em>.
+        </h2>
+        <div class="footer-contact">
+          <span class="footer-contact-label">Kontakt</span>
+          <a href="mailto:hello@furkanalkan.com">hello@furkanalkan.com</a>
+          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="#" target="_blank" rel="noopener">Instagram</a>
+          <a href="#" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Furkan Alkan · Wuppertal</span>
+        <span>Built solo · Hosted on Cloudflare</span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    /* ============================================================
+       Card interactions: holo-tracking + flip
+       ============================================================ */
+    document.querySelectorAll("[data-card]").forEach((card) => {
+      let rafId = null;
+
+      card.addEventListener("mousemove", (e) => {
+        if (card.classList.contains("flipped")) return;
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty("--mx", x.toFixed(2));
+          card.style.setProperty("--my", y.toFixed(2));
+          // Tilt magnitude: -50..+50
+          card.style.setProperty("--rx", (x - 50).toFixed(2));
+          card.style.setProperty("--ry", (y - 50).toFixed(2));
+        });
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.setProperty("--mx", 50);
+        card.style.setProperty("--my", 50);
+        card.style.setProperty("--rx", 0);
+        card.style.setProperty("--ry", 0);
+      });
+
+      card.addEventListener("click", (e) => {
+        // Don't flip when clicking links/buttons
+        if (e.target.closest("a, button")) return;
+        card.classList.toggle("flipped");
+      });
+    });
+
+    document.querySelectorAll("[data-flip-back]").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        btn.closest(".card").classList.remove("flipped");
+      });
+    });
+
+    /* ============================================================
+       Scroll-triggered reveal with stagger inside grids
+       ============================================================ */
+    const grids = new Map();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const grid = el.closest(".grid");
+          if (grid) {
+            // Stagger cards inside the same grid
+            const idx = grids.get(grid) || 0;
+            grids.set(grid, idx + 1);
+            setTimeout(() => el.classList.add("visible"), idx * 90);
+          } else {
+            el.classList.add("visible");
+          }
+          observer.unobserve(el);
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
