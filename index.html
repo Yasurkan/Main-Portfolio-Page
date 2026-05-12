@@ -3,39 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Furkan Alkan — Werk, Spiel, Schatten</title>
-  <meta name="description" content="Portfolio von Furkan Alkan. Solo-Operator zwischen Klang, Kommerz und Konzept." />
+  <title>Furkan Alkan — The Collection</title>
+  <meta name="description" content="Portfolio von Furkan Alkan — eine Sammlung aus Werk & Spiel." />
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f4ede1'/%3E%3Ctext x='50%25' y='66%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia, serif' font-style='italic' font-weight='400' font-size='22' fill='%231a1612'%3EF%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23a855f7'/%3E%3Cstop offset='.5' stop-color='%23f5cca8'/%3E%3Cstop offset='1' stop-color='%2358e6c9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='%230a0614'/%3E%3Ctext x='50%25' y='66%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia, serif' font-style='italic' font-weight='700' font-size='22' fill='url(%23g)'%3EF%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
-       FURKAN ALKAN — Portfolio v3 (Warm Editorial)
+       FURKAN ALKAN — Portfolio v4: "The Collection"
+       Trading-card-collection aesthetic, dark velvet, holo foils
        ============================================================ */
 
     :root {
       /* === SURFACES === */
-      --bg: #f4ede1;
-      --bg-warm: #ede4d3;
-      --bg-dark: #1a1612;
-      --bg-dark-2: #221d18;
+      --bg-deep: #0a0614;
+      --bg-base: #110a1f;
+      --bg-elev: #1a112e;
+      --bg-card: #181028;
 
       /* === TEXT === */
-      --ink: #1a1612;
-      --ink-soft: #3a342d;
-      --ink-mid: #6a635a;
-      --ink-mute: #a8a094;
-      --ink-quiet: #c4bcaf;
+      --text-primary: #f5efe4;
+      --text-secondary: #b8aec4;
+      --text-tertiary: #7a7088;
+      --text-quiet: #4a4258;
 
-      --cream: #f4ede1;
-      --cream-soft: #e6dccb;
-      --cream-mute: #b8ad99;
+      /* === RARITY === */
+      --rarity-common: #cbd5e1;
+      --rarity-rare: #60a5fa;
+      --rarity-epic: #c084fc;
+      --rarity-legendary: #fbbf24;
 
-      /* === BRAND COLORS === */
+      /* === BRAND === */
       --brand-shop: #b8e8bc;
       --brand-digital: #5b8def;
       --brand-academic: #d9c89e;
@@ -43,17 +45,23 @@
       --brand-werkzeug: #d3161c;
       --brand-chunkplan: #2dd4a8;
       --brand-ensorena: #8b5cf6;
-      --brand-songwriting: #c084fc;
+
+      /* === HOLO === */
+      --holo-1: #ff6ec7;
+      --holo-2: #6ec3ff;
+      --holo-3: #7dffae;
+      --holo-4: #ffd86e;
+      --holo-5: #ff8e6e;
 
       /* === STRUCTURE === */
-      --border: rgba(26, 22, 18, 0.12);
-      --border-soft: rgba(26, 22, 18, 0.06);
-      --border-on-dark: rgba(244, 237, 225, 0.12);
+      --border: rgba(245, 239, 228, 0.08);
+      --border-mid: rgba(245, 239, 228, 0.16);
+      --border-strong: rgba(245, 239, 228, 0.24);
 
       /* === MOTION === */
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
       --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     *, *::before, *::after {
@@ -62,87 +70,131 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: auto; /* Lenis handles smooth scroll */
-    }
+    html { scroll-behavior: auto; }
 
     body {
-      font-family: "Instrument Sans", system-ui, sans-serif;
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
       font-size: 16px;
       line-height: 1.55;
-      background: var(--bg);
-      color: var(--ink);
+      background: var(--bg-deep);
+      color: var(--text-primary);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
       min-height: 100vh;
+      cursor: none;
     }
 
-    /* Paper texture overlay */
+    @media (hover: none), (max-width: 900px) {
+      body { cursor: auto; }
+    }
+
+    /* Velvet table background */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)' opacity='0.7'/></svg>");
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 0%, rgba(139, 92, 246, 0.12), transparent 60%),
+        radial-gradient(ellipse 70% 50% at 100% 100%, rgba(91, 141, 239, 0.09), transparent 60%),
+        radial-gradient(ellipse 60% 40% at 0% 80%, rgba(245, 204, 168, 0.06), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Subtle film grain */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)' opacity='0.6'/></svg>");
       opacity: 0.04;
       pointer-events: none;
       z-index: 1;
-      mix-blend-mode: multiply;
+      mix-blend-mode: screen;
     }
 
     main { position: relative; z-index: 2; }
 
-    /* Hide focus outline but preserve for keyboard */
-    :focus { outline: none; }
-    :focus-visible {
-      outline: 2px solid var(--ink);
-      outline-offset: 4px;
-    }
-
     /* ============================================================
-       CUSTOM CURSOR (desktop only)
+       CUSTOM CURSOR — Selector frame
        ============================================================ */
-    .cursor-dot,
-    .cursor-ring {
+    .cursor-core,
+    .cursor-frame {
       position: fixed;
       top: 0;
       left: 0;
       pointer-events: none;
       z-index: 999;
-      transform: translate3d(0, 0, 0);
       will-change: transform;
-      mix-blend-mode: difference;
     }
 
-    .cursor-dot {
+    .cursor-core {
       width: 6px;
       height: 6px;
-      background: var(--cream);
-      border-radius: 50%;
       margin: -3px 0 0 -3px;
-    }
-
-    .cursor-ring {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--cream);
+      background: var(--text-primary);
       border-radius: 50%;
-      margin: -18px 0 0 -18px;
-      transition: width 0.3s var(--ease-out-expo),
-                  height 0.3s var(--ease-out-expo),
-                  margin 0.3s var(--ease-out-expo),
-                  border-color 0.3s ease,
-                  background 0.3s ease;
+      transition: transform 0.2s var(--ease-out-expo),
+                  width 0.3s ease, height 0.3s ease,
+                  margin 0.3s ease;
     }
 
-    .cursor-ring.expanded {
-      width: 64px;
-      height: 64px;
-      margin: -32px 0 0 -32px;
-      background: rgba(244, 237, 225, 0.1);
+    .cursor-frame {
+      width: 32px;
+      height: 32px;
+      margin: -16px 0 0 -16px;
+      border: 1px solid var(--text-primary);
+      border-radius: 6px;
+      transition:
+        width 0.4s var(--ease-out-expo),
+        height 0.4s var(--ease-out-expo),
+        margin 0.4s var(--ease-out-expo),
+        border-radius 0.4s var(--ease-out-expo),
+        border-color 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+    /* Cursor corner ticks */
+    .cursor-frame::before,
+    .cursor-frame::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--text-primary);
+      transition: border-color 0.3s ease;
+    }
+    .cursor-frame::before {
+      top: -1px; left: -1px;
+      border-right: none;
+      border-bottom: none;
+    }
+    .cursor-frame::after {
+      bottom: -1px; right: -1px;
+      border-left: none;
+      border-top: none;
+    }
+
+    .cursor-frame.lock {
+      width: var(--lock-w, 100px);
+      height: var(--lock-h, 140px);
+      margin: calc(var(--lock-h, 140px) / -2) 0 0 calc(var(--lock-w, 100px) / -2);
+      border-radius: 14px;
+      border-color: var(--rarity, var(--text-primary));
+    }
+    .cursor-frame.lock::before,
+    .cursor-frame.lock::after {
+      border-color: var(--rarity, var(--text-primary));
+    }
+
+    .cursor-core.shrink {
+      width: 3px;
+      height: 3px;
+      margin: -1.5px 0 0 -1.5px;
     }
 
     @media (hover: none), (max-width: 900px) {
-      .cursor-dot, .cursor-ring { display: none; }
+      .cursor-core, .cursor-frame { display: none; }
     }
 
     /* ============================================================
@@ -150,90 +202,96 @@
        ============================================================ */
     .scroll-progress {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       height: 2px;
       width: 100%;
       transform-origin: left;
       transform: scaleX(var(--progress, 0));
-      background: var(--ink);
+      background: linear-gradient(90deg, var(--holo-1), var(--holo-2), var(--holo-3), var(--holo-4));
       z-index: 100;
       pointer-events: none;
-      mix-blend-mode: difference;
     }
 
     /* ============================================================
-       UTILITY: Container & nav
-       ============================================================ */
-    .container {
-      max-width: 1480px;
-      margin: 0 auto;
-      padding: 0 clamp(1.25rem, 3vw, 2.5rem);
-    }
-
-    /* ============================================================
-       TOP NAV
+       NAV / HUD
        ============================================================ */
     .nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.25rem, 3vw, 2.5rem);
+      padding: 1.25rem clamp(1.25rem, 3vw, 2.5rem);
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 50;
-      mix-blend-mode: difference;
-      color: var(--cream);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(10, 6, 20, 0.4);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-mark {
-      font-family: "Instrument Serif", serif;
+      font-family: "Newsreader", serif;
       font-style: italic;
+      font-weight: 400;
       font-size: 1.25rem;
       letter-spacing: -0.02em;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-mark::before {
+      content: "♦";
+      color: var(--brand-aikano);
+      font-style: normal;
+      font-size: 0.75em;
     }
 
     .nav-links {
       display: flex;
       gap: clamp(1rem, 2.5vw, 2rem);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
     }
 
     .nav-links a {
-      color: inherit;
+      color: var(--text-secondary);
       text-decoration: none;
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
+      transition: color 0.3s ease;
       position: relative;
     }
 
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: currentColor;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.4s var(--ease-out-expo);
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .nav-counter {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .nav-links a:hover {
-      opacity: 1;
-    }
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
+    .nav-counter::before {
+      content: "●";
+      color: var(--brand-chunkplan);
+      animation: pulse 2.4s ease-in-out infinite;
     }
 
-    @media (max-width: 640px) {
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    @media (max-width: 700px) {
       .nav-links { display: none; }
     }
 
@@ -242,121 +300,141 @@
        ============================================================ */
     .hero {
       min-height: 100vh;
-      padding: clamp(8rem, 12vw, 12rem) clamp(1.25rem, 3vw, 2.5rem) clamp(2rem, 4vw, 4rem);
+      padding: clamp(8rem, 14vw, 13rem) clamp(1.25rem, 3vw, 2.5rem) 4rem;
       display: grid;
-      grid-template-rows: 1fr auto;
+      grid-template-rows: auto 1fr auto;
       gap: 2rem;
       position: relative;
       max-width: 1480px;
       margin: 0 auto;
     }
 
-    .hero-display {
+    .hero-top {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero-title-block {
       display: grid;
       align-content: center;
+      position: relative;
     }
 
-    .hero-eyebrow {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .hero-eyebrow::before {
-      content: "";
-      width: 24px;
-      height: 1px;
-      background: var(--ink-mid);
-    }
-
-    .hero-name {
-      font-family: "Instrument Serif", serif;
-      font-weight: 400;
-      font-size: clamp(3.5rem, 14vw, 13rem);
+    .hero-title {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-weight: 300;
+      font-variation-settings: "opsz" 96;
+      font-size: clamp(4rem, 16vw, 14rem);
       line-height: 0.85;
-      letter-spacing: -0.04em;
-      color: var(--ink);
+      letter-spacing: -0.05em;
+      color: var(--text-primary);
     }
 
-    .hero-name .line {
+    .hero-title .line {
       display: block;
       overflow: hidden;
     }
-
-    .hero-name .line span {
+    .hero-title .line span {
       display: inline-block;
+      transform: translateY(105%);
     }
 
-    .hero-name em {
+    .hero-title em {
+      font-family: "Newsreader", serif;
       font-style: italic;
+      font-weight: 300;
+      background: linear-gradient(135deg, var(--holo-1), var(--holo-2), var(--holo-3), var(--holo-4));
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: holoShift 6s ease-in-out infinite;
     }
 
-    /* Asymmetric line offsets */
-    .hero-name .line:nth-child(2) {
-      padding-left: clamp(2rem, 8vw, 8rem);
-    }
-
-    .hero-name .line:nth-child(3) {
-      padding-left: clamp(4rem, 16vw, 16rem);
+    @keyframes holoShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .hero-tagline {
       margin-top: clamp(2rem, 4vw, 3rem);
-      max-width: 580px;
-      margin-left: auto;
-      font-size: clamp(1rem, 1.15vw, 1.05rem);
+      max-width: 620px;
+      font-size: clamp(1rem, 1.15vw, 1.1rem);
       line-height: 1.6;
-      color: var(--ink-soft);
+      color: var(--text-secondary);
+      opacity: 0;
     }
 
     .hero-tagline strong {
-      color: var(--ink);
+      color: var(--text-primary);
       font-weight: 500;
     }
 
     .hero-tagline em {
-      font-family: "Instrument Serif", serif;
+      font-family: "Newsreader", serif;
       font-style: italic;
       font-size: 1.1em;
-      font-weight: 400;
+      color: var(--text-primary);
     }
 
-    .hero-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
+    .hero-hud {
+      display: grid;
+      grid-template-columns: 1fr auto;
       gap: 2rem;
-      flex-wrap: wrap;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
+      align-items: end;
+      opacity: 0;
     }
 
     .hero-stats {
       display: flex;
-      gap: clamp(1rem, 3vw, 2.5rem);
+      gap: clamp(1.5rem, 3vw, 3rem);
+      flex-wrap: wrap;
     }
 
-    .hero-stat .num {
-      font-family: "Instrument Serif", serif;
-      font-style: italic;
-      font-size: 1.6rem;
-      color: var(--ink);
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .hero-stat-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+    }
+
+    .hero-stat-val {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-weight: 400;
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      line-height: 1;
+      color: var(--text-primary);
       letter-spacing: -0.02em;
-      display: block;
-      margin-top: 0.25rem;
-      text-transform: none;
+      font-variation-settings: "opsz" 60;
+    }
+
+    .hero-stat-val em {
+      font-family: "Newsreader", serif;
+      font-style: italic;
+      font-weight: 300;
     }
 
     .hero-scroll {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -365,6 +443,7 @@
     .hero-scroll::after {
       content: "↓";
       animation: bob 2s ease-in-out infinite;
+      font-size: 1rem;
     }
 
     @keyframes bob {
@@ -382,25 +461,20 @@
       position: relative;
     }
 
-    .marquee.on-dark {
-      border-block: 1px solid var(--border-on-dark);
-    }
-
     .marquee-track {
       display: flex;
       gap: 3rem;
-      animation: marqueeScroll var(--mq-duration, 40s) linear infinite;
       width: max-content;
       will-change: transform;
     }
 
     .marquee-item {
-      font-family: "Instrument Serif", serif;
+      font-family: "Newsreader", serif;
       font-style: italic;
-      font-weight: 400;
+      font-weight: 300;
       font-size: clamp(2.5rem, 6vw, 5rem);
       line-height: 1;
-      color: var(--ink);
+      color: var(--text-quiet);
       letter-spacing: -0.03em;
       white-space: nowrap;
       display: flex;
@@ -408,74 +482,44 @@
       gap: 3rem;
     }
 
-    .marquee.on-dark .marquee-item {
-      color: var(--cream);
-    }
-
     .marquee-item::after {
       content: "✦";
       font-style: normal;
-      font-size: 0.45em;
-      color: var(--brand-werkzeug);
+      font-size: 0.4em;
+      color: var(--brand-aikano);
       vertical-align: middle;
     }
 
-    .marquee.reverse .marquee-track {
-      animation-direction: reverse;
-    }
-
-    .marquee.on-dark .marquee-item::after {
-      color: var(--brand-aikano);
-    }
-
-    @keyframes marqueeScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
     /* ============================================================
-       SECTIONS
+       SECTION HEADERS
        ============================================================ */
     .section {
-      padding: clamp(6rem, 12vw, 10rem) 0;
+      padding: clamp(4rem, 9vw, 8rem) clamp(1.25rem, 3vw, 2.5rem);
+      max-width: 1480px;
+      margin: 0 auto;
     }
-
-    .section.dark {
-      background: var(--bg-dark);
-      color: var(--cream);
-    }
-
-    .section.dark .section-eyebrow { color: var(--ink-quiet); }
-    .section.dark .section-eyebrow::before { background: var(--ink-quiet); }
-    .section.dark .section-desc { color: var(--cream-mute); }
 
     .section-header {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(1.5rem, 3vw, 2.5rem);
-      margin-bottom: clamp(4rem, 8vw, 6rem);
-      max-width: 1480px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 clamp(1.25rem, 3vw, 2.5rem);
+      margin-bottom: clamp(3rem, 6vw, 5rem);
     }
 
     .section-eyebrow {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--ink-mid);
+      color: var(--text-tertiary);
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
 
     .section-eyebrow::before {
       content: "";
       width: 0;
       height: 1px;
-      background: var(--ink-mid);
+      background: var(--text-tertiary);
       transition: width 1s var(--ease-out-expo) 0.2s;
     }
 
@@ -484,34 +528,50 @@
     .section-title-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(1.5rem, 4vw, 4rem);
+      gap: clamp(2rem, 4vw, 4rem);
       align-items: end;
     }
 
     .section-title {
-      font-family: "Instrument Serif", serif;
-      font-weight: 400;
-      font-style: italic;
-      font-size: clamp(4rem, 12vw, 10rem);
-      line-height: 0.85;
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-weight: 300;
+      font-size: clamp(3.5rem, 10vw, 9rem);
+      line-height: 0.88;
       letter-spacing: -0.04em;
+      color: var(--text-primary);
+      font-variation-settings: "opsz" 96;
     }
 
-    .section-desc {
-      max-width: 460px;
-      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
-      line-height: 1.6;
-      color: var(--ink-soft);
+    .section-title em {
+      font-family: "Newsreader", serif;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--brand-aikano);
+    }
+
+    .section-meta {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
       padding-bottom: 0.75rem;
       justify-self: end;
+      text-align: right;
     }
+
+    .section-meta-line {
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .section-meta-line:last-child { margin-bottom: 0; }
 
     @media (max-width: 800px) {
       .section-title-row {
         grid-template-columns: 1fr;
         align-items: start;
       }
-      .section-desc { justify-self: start; }
+      .section-meta { justify-self: start; text-align: left; }
     }
 
     /* ============================================================
@@ -519,276 +579,343 @@
        ============================================================ */
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: clamp(1.5rem, 2.5vw, 2rem);
-      max-width: 1480px;
-      margin: 0 auto;
-      padding: 0 clamp(1.25rem, 3vw, 2.5rem);
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* Featured grid for special cards */
-    .grid-feature {
-      grid-template-columns: 1fr;
-    }
-
-    @media (max-width: 900px) {
-      .grid, .grid-3 { grid-template-columns: 1fr; }
+      grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+      gap: clamp(1.25rem, 2vw, 1.75rem);
+      perspective: 1800px;
     }
 
     /* ============================================================
-       EDITORIAL CARD
+       TRADING CARD
        ============================================================ */
     .card {
+      --mx: 50;
+      --my: 50;
+      --tilt-x: 0deg;
+      --tilt-y: 0deg;
+      --lift: 0px;
+
       position: relative;
-      display: flex;
-      flex-direction: column;
-      background: var(--cream-soft);
-      border: 1px solid var(--border);
-      border-radius: 1.5rem;
+      aspect-ratio: 5 / 7;
+      border-radius: 1.25rem;
       overflow: hidden;
-      transition: transform 0.6s var(--ease-out-expo),
-                  box-shadow 0.6s ease;
-      will-change: transform;
+      display: block;
       text-decoration: none;
       color: inherit;
-      cursor: pointer;
+      cursor: none;
+      transform-style: preserve-3d;
+      transform:
+        translateY(var(--lift))
+        rotateX(var(--tilt-x))
+        rotateY(var(--tilt-y));
+      transition: transform 0.6s var(--ease-out-expo);
+      will-change: transform;
+      background: var(--bg-card);
+      border: 1px solid var(--rarity-color, var(--border-mid));
+      box-shadow:
+        0 1px 0 inset rgba(255, 255, 255, 0.04),
+        0 30px 60px -30px rgba(0, 0, 0, 0.5),
+        0 0 0 1px var(--border) inset;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px -20px rgba(26, 22, 18, 0.15);
+      --lift: -10px;
     }
 
-    .section.dark .card {
-      background: var(--bg-dark-2);
-      border-color: var(--border-on-dark);
+    @media (hover: none) {
+      .card { cursor: pointer; }
     }
 
-    .section.dark .card:hover {
-      box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
-    }
+    /* Rarity colors */
+    .card[data-rarity="common"]    { --rarity-color: var(--rarity-common); }
+    .card[data-rarity="rare"]      { --rarity-color: var(--rarity-rare); }
+    .card[data-rarity="epic"]      { --rarity-color: var(--rarity-epic); }
+    .card[data-rarity="legendary"] { --rarity-color: var(--rarity-legendary); }
 
-    /* Color block */
-    .card-block {
+    /* Card inner layers */
+    .card-art {
       position: relative;
-      aspect-ratio: 4 / 3;
-      background: var(--card-color, var(--cream-mute));
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      padding: clamp(1.5rem, 2.5vw, 2rem);
-      transition: aspect-ratio 0.8s var(--ease-out-expo);
-    }
-
-    /* Hover: color shift effect */
-    .card-block::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+      aspect-ratio: 5 / 4;
       background:
-        radial-gradient(
-          circle 600px at var(--mx, 50%) var(--my, 50%),
-          rgba(255, 255, 255, 0.18),
-          transparent 50%
+        linear-gradient(
+          165deg,
+          color-mix(in srgb, var(--card-color, white) 75%, transparent) 0%,
+          color-mix(in srgb, var(--card-color, white) 40%, var(--bg-card)) 60%,
+          var(--bg-card) 100%
         );
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      pointer-events: none;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
     }
 
-    .card:hover .card-block::before {
-      opacity: 1;
+    /* Art SVG/decoration */
+    .card-art-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.5;
+      mix-blend-mode: soft-light;
     }
 
-    /* Subtle noise/grain on color block */
-    .card-block::after {
+    /* Cursor-tracked highlight */
+    .card-art::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.5'/></svg>");
-      opacity: 0.06;
+      background: radial-gradient(
+        circle 280px at calc(var(--mx) * 1%) calc(var(--my) * 1%),
+        rgba(255, 255, 255, 0.3),
+        transparent 55%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
       pointer-events: none;
-      mix-blend-mode: multiply;
+      z-index: 3;
     }
 
-    .card-number {
-      font-family: "Instrument Serif", serif;
-      font-style: italic;
-      font-size: clamp(4rem, 8vw, 7rem);
-      line-height: 0.8;
-      color: rgba(26, 22, 18, 0.85);
-      letter-spacing: -0.04em;
-      position: relative;
+    /* Holographic foil */
+    .card-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: conic-gradient(
+        from calc(var(--mx) * 3.6deg) at 50% 50%,
+        var(--holo-1),
+        var(--holo-2),
+        var(--holo-3),
+        var(--holo-4),
+        var(--holo-5),
+        var(--holo-1)
+      );
+      opacity: 0;
+      mix-blend-mode: color-dodge;
+      transition: opacity 0.45s ease;
+      pointer-events: none;
       z-index: 2;
-      mix-blend-mode: multiply;
     }
 
-    /* White text on dark brand colors */
-    .card[data-card-light="true"] .card-number {
-      color: rgba(244, 237, 225, 0.95);
-      mix-blend-mode: normal;
+    .card:hover .card-art::before { opacity: 1; }
+    .card:hover .card-art::after  { opacity: 0.45; }
+
+    /* Legendary cards get foil even at rest (subtle) */
+    .card[data-rarity="legendary"] .card-art::after {
+      opacity: 0.18;
+      animation: holoIdle 8s linear infinite;
+    }
+    .card[data-rarity="legendary"]:hover .card-art::after { opacity: 0.55; }
+
+    .card[data-rarity="epic"] .card-art::after {
+      opacity: 0.12;
+    }
+    .card[data-rarity="epic"]:hover .card-art::after { opacity: 0.4; }
+
+    @keyframes holoIdle {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
 
-    .card-body {
-      padding: clamp(1.5rem, 2.5vw, 2rem);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      flex: 1;
-    }
-
-    .card-label {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
+    /* Index number, top-left of art */
+    .card-index {
+      position: absolute;
+      top: 0.9rem;
+      left: 1rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--ink-mid);
+      color: rgba(10, 6, 20, 0.7);
+      z-index: 4;
+      background: rgba(245, 239, 228, 0.7);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 0.3rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    /* Rarity badge top-right */
+    .card-rarity {
+      position: absolute;
+      top: 0.9rem;
+      right: 1rem;
+      z-index: 4;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.3rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rarity-color);
+      background: rgba(10, 6, 20, 0.7);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 0.3rem 0.55rem;
+      border-radius: 4px;
+      border: 1px solid var(--rarity-color);
     }
 
-    .section.dark .card-label { color: var(--ink-quiet); }
+    .card-rarity-dots {
+      display: flex;
+      gap: 2px;
+    }
+    .card-rarity-dots span {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--rarity-color);
+      box-shadow: 0 0 6px var(--rarity-color);
+    }
 
-    .card-label::before {
+    /* Big project initial / decoration in art area */
+    .card-glyph {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Newsreader", serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(7rem, 14vw, 11rem);
+      line-height: 1;
+      color: rgba(10, 6, 20, 0.35);
+      letter-spacing: -0.04em;
+      z-index: 1;
+      mix-blend-mode: multiply;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Body of the card */
+    .card-body {
+      padding: 1.1rem 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-type {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card-type::before {
       content: "";
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background: var(--card-color);
-      box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+      box-shadow: 0 0 10px var(--card-color);
     }
 
     .card-title {
-      font-family: "Instrument Serif", serif;
+      font-family: "Bricolage Grotesque", sans-serif;
       font-weight: 400;
-      font-size: clamp(1.75rem, 2.5vw, 2.4rem);
-      line-height: 1.05;
-      letter-spacing: -0.025em;
-      color: var(--ink);
-      margin-top: 0.25rem;
+      font-size: clamp(1.2rem, 1.5vw, 1.45rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      font-variation-settings: "opsz" 36;
     }
 
-    .section.dark .card-title { color: var(--cream); }
-
     .card-title em {
+      font-family: "Newsreader", serif;
       font-style: italic;
+      font-weight: 400;
+      color: var(--card-color);
     }
 
     .card-meta {
-      font-size: clamp(0.95rem, 1vw, 1rem);
-      line-height: 1.55;
-      color: var(--ink-soft);
-      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--text-secondary);
     }
 
-    .section.dark .card-meta { color: var(--cream-mute); }
-
-    .card-foot {
-      margin-top: auto;
-      padding-top: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
+    .card-flavor {
+      font-family: "Newsreader", serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: var(--text-tertiary);
+      padding-top: 0.5rem;
+      margin-top: 0.25rem;
+      border-top: 1px dashed var(--border);
     }
 
-    .section.dark .card-foot { color: var(--ink-quiet); }
-
-    .card-foot-arrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: gap 0.4s var(--ease-out-expo);
-    }
-
-    .card:hover .card-foot-arrow {
-      gap: 1rem;
-    }
-
-    .card-foot-arrow::after {
-      content: "→";
-      font-family: "Instrument Sans", sans-serif;
-    }
-
-    /* ============================================================
-       FEATURE CARD (Schatten)
-       ============================================================ */
-    .card-feature {
+    .card-stats {
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      aspect-ratio: auto;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.4rem;
+      padding-top: 0.65rem;
+      margin-top: 0.25rem;
+      border-top: 1px solid var(--border);
     }
 
-    .card-feature .card-block {
-      aspect-ratio: auto;
-      min-height: 480px;
-      padding: clamp(2rem, 4vw, 3.5rem);
+    .card-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
     }
 
-    .card-feature .card-number {
-      font-size: clamp(6rem, 14vw, 12rem);
+    .card-stat-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-quiet);
     }
 
-    .card-feature .card-body {
-      padding: clamp(2rem, 4vw, 3.5rem);
-      justify-content: center;
+    .card-stat-value {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
     }
 
-    .card-feature .card-title {
-      font-size: clamp(2.5rem, 4vw, 3.5rem);
+    /* Lock / disabled state for cards without link */
+    .card.locked {
+      cursor: not-allowed;
     }
-
-    .card-feature .card-meta {
-      font-size: clamp(1rem, 1.1vw, 1.1rem);
-      max-width: 480px;
-    }
-
-    @media (max-width: 900px) {
-      .card-feature {
-        grid-template-columns: 1fr;
-      }
-      .card-feature .card-block {
-        min-height: 300px;
-        aspect-ratio: 4 / 3;
-      }
+    .card.locked .card-foot-cta {
+      opacity: 0.5;
     }
 
     /* ============================================================
        FOOTER
        ============================================================ */
     .footer {
-      background: var(--bg-dark);
-      color: var(--cream);
       padding: clamp(6rem, 10vw, 9rem) clamp(1.25rem, 3vw, 2.5rem) 2rem;
-    }
-
-    .footer-inner {
       max-width: 1480px;
       margin: 0 auto;
+      border-top: 1px solid var(--border);
     }
 
     .footer-headline {
-      font-family: "Instrument Serif", serif;
-      font-weight: 400;
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-weight: 300;
       font-size: clamp(2.5rem, 8vw, 7rem);
       line-height: 0.95;
-      letter-spacing: -0.035em;
+      letter-spacing: -0.04em;
       max-width: 1100px;
-      color: var(--cream);
+      color: var(--text-primary);
+      font-variation-settings: "opsz" 96;
     }
 
     .footer-headline em {
+      font-family: "Newsreader", serif;
       font-style: italic;
-      color: var(--brand-aikano);
+      font-weight: 300;
+      background: linear-gradient(135deg, var(--holo-1), var(--holo-2), var(--holo-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .footer-grid {
@@ -797,7 +924,7 @@
       gap: 3rem;
       margin-top: clamp(4rem, 7vw, 6rem);
       padding-top: clamp(3rem, 5vw, 4rem);
-      border-top: 1px solid var(--border-on-dark);
+      border-top: 1px solid var(--border);
       align-items: end;
     }
 
@@ -808,20 +935,21 @@
     }
 
     .footer-col-label {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.72rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--ink-quiet);
+      color: var(--text-tertiary);
       margin-bottom: 0.85rem;
     }
 
     .footer-link {
       display: block;
-      color: var(--cream);
+      color: var(--text-primary);
       text-decoration: none;
-      font-family: "Instrument Serif", serif;
+      font-family: "Newsreader", serif;
       font-style: italic;
+      font-weight: 400;
       font-size: clamp(1.4rem, 2vw, 1.8rem);
       letter-spacing: -0.02em;
       line-height: 1.2;
@@ -831,7 +959,7 @@
 
     .footer-link:hover {
       color: var(--brand-aikano);
-      transform: translateX(6px);
+      transform: translateX(8px);
     }
 
     .footer-bottom {
@@ -840,29 +968,23 @@
       align-items: center;
       margin-top: 4rem;
       padding-top: 2rem;
-      border-top: 1px solid var(--border-on-dark);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
+      border-top: 1px solid var(--border);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--ink-quiet);
+      color: var(--text-tertiary);
       flex-wrap: wrap;
       gap: 1rem;
     }
 
     @media (max-width: 700px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-      .footer-links {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-links { grid-template-columns: 1fr; gap: 2rem; }
     }
 
     /* ============================================================
-       REVEAL ANIMATION (GSAP fallback handled in CSS)
+       REVEAL
        ============================================================ */
     .reveal {
       opacity: 0;
@@ -871,48 +993,114 @@
         opacity 1s var(--ease-out-expo),
         transform 1s var(--ease-out-expo);
     }
-
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Hero name initial state */
-    .hero-name .line span {
-      transform: translateY(105%);
-      will-change: transform;
-    }
-
-    .hero-eyebrow,
-    .hero-tagline,
-    .hero-bottom {
+    /* ============================================================
+       SECRET CARD (Easter Egg)
+       ============================================================ */
+    .secret-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 6, 20, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
     }
 
-    /* Disable hover transforms during initial paint */
+    .secret-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .secret-card {
+      width: min(340px, 80vw);
+      aspect-ratio: 5 / 7;
+      border-radius: 1.5rem;
+      background: linear-gradient(135deg, var(--bg-elev), var(--bg-card));
+      border: 1px solid var(--rarity-legendary);
+      box-shadow: 0 0 60px var(--rarity-legendary);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: scale(0.8) rotateY(20deg);
+      transition: transform 0.7s var(--ease-spring);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .secret-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: conic-gradient(
+        from 0deg, var(--holo-1), var(--holo-2), var(--holo-3), var(--holo-4), var(--holo-5), var(--holo-1)
+      );
+      opacity: 0.2;
+      mix-blend-mode: color-dodge;
+      animation: holoIdle 10s linear infinite;
+      pointer-events: none;
+    }
+
+    .secret-overlay.active .secret-card {
+      transform: scale(1) rotateY(0);
+    }
+
+    .secret-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: none;
+      border: 1px solid var(--border-mid);
+      color: var(--text-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: none;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1rem;
+      z-index: 201;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { max-width: 380px; margin: 0 auto; width: 100%; }
+      .hero-top { font-size: 0.62rem; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
       }
-      .hero-name .line span { transform: none; }
-      .hero-eyebrow, .hero-tagline, .hero-bottom { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="cursor-ring" aria-hidden="true"></div>
-  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-frame" aria-hidden="true"></div>
+  <div class="cursor-core" aria-hidden="true"></div>
   <div class="scroll-progress" aria-hidden="true"></div>
 
   <nav class="nav">
     <a href="#" class="nav-mark">Furkan Alkan</a>
     <div class="nav-links">
-      <a href="#werk" data-magnetic>Werk</a>
-      <a href="#spiel" data-magnetic>Spiel</a>
-      <a href="#schatten" data-magnetic>Schatten</a>
-      <a href="mailto:hello@furkanalkan.com" data-magnetic>Kontakt</a>
+      <a href="#werk">Werk</a>
+      <a href="#spiel">Spiel</a>
+      <a href="mailto:hello@furkanalkan.com">Kontakt</a>
     </div>
+    <div class="nav-counter"><span data-card-counter>0/7</span></div>
   </nav>
 
   <main>
@@ -921,36 +1109,42 @@
          HERO
          ============================================================ -->
     <section class="hero">
-      <div class="hero-display">
-        <div class="hero-eyebrow">Index · Wuppertal · 2026</div>
+      <div class="hero-top">
+        <span>Home · Germany · 2026</span>
+        <span>v4 · The Collection</span>
+      </div>
 
-        <h1 class="hero-name">
-          <span class="line"><span>Werk</span></span>
-          <span class="line"><span>Spiel</span></span>
-          <span class="line"><span><em>Schatten.</em></span></span>
+      <div class="hero-title-block">
+        <h1 class="hero-title">
+          <span class="line"><span>Werk &amp;</span></span>
+          <span class="line"><span><em>Spiel.</em></span></span>
         </h1>
 
         <p class="hero-tagline">
           <strong>Solo-Operator zwischen Klang, Kommerz und Konzept.</strong>
           Multibrand-Architekt, Kleinunternehmer, experimentelles Musiklabel
-          im Eigenbau. Diese Seite ist <em>Inventar</em> — was ich gebaut,
-          gespielt habe und was das Tageslicht noch nicht gesehen hat.
+          im Eigenbau. Diese Seite ist <em>die Sammlung</em> — sieben Karten,
+          zwei Kategorien, ein Spielfeld.
         </p>
       </div>
 
-      <div class="hero-bottom">
+      <div class="hero-hud">
         <div class="hero-stats">
           <div class="hero-stat">
-            <span>Index</span>
-            <span class="num" data-count="8">0</span>
+            <span class="hero-stat-label">Cards</span>
+            <span class="hero-stat-val" data-count="7">0</span>
           </div>
           <div class="hero-stat">
-            <span>Kategorien</span>
-            <span class="num" data-count="3">0</span>
+            <span class="hero-stat-label">Kategorien</span>
+            <span class="hero-stat-val" data-count="2">0</span>
           </div>
           <div class="hero-stat">
-            <span>Stand</span>
-            <span class="num" style="font-style: italic;">live</span>
+            <span class="hero-stat-label">Legendary</span>
+            <span class="hero-stat-val"><em>1</em></span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">Status</span>
+            <span class="hero-stat-val"><em>live</em></span>
           </div>
         </div>
         <div class="hero-scroll">Scroll</div>
@@ -974,122 +1168,207 @@
          ============================================================ -->
     <section class="section" id="werk">
       <header class="section-header reveal">
-        <div class="section-eyebrow">I — Werk</div>
+        <div class="section-eyebrow">Pack I — Werk</div>
         <div class="section-title-row">
-          <h2 class="section-title">Werk.</h2>
-          <p class="section-desc">
-            Was Geld verdient, was Bestand hat, was ausgeliefert wurde.
-            Marken, Mandate, fundierte Arbeit.
-          </p>
+          <h2 class="section-title"><em>Werk.</em></h2>
+          <div class="section-meta">
+            <span class="section-meta-line">5 Cards</span>
+            <span class="section-meta-line">1 Legendary · 1 Epic · 2 Rare · 1 Common</span>
+          </div>
         </div>
       </header>
 
       <div class="grid">
 
-        <!-- 01 Handfaktur Shop -->
-        <a class="card reveal" href="#" target="_blank" rel="noopener"
-           style="--card-color: #b8e8bc;" data-card>
-          <div class="card-block">
-            <span class="card-number">01</span>
+        <!-- 01 Handfaktur Shop · RARE -->
+        <a class="card reveal" href="https://handfaktur.de/" target="_blank" rel="noopener"
+           data-card data-rarity="rare" style="--card-color: #b8e8bc;">
+          <div class="card-art">
+            <span class="card-glyph">H</span>
+            <span class="card-index">01 / 07</span>
+            <span class="card-rarity">
+              <span class="card-rarity-dots"><span></span><span></span></span>
+              Rare
+            </span>
           </div>
           <div class="card-body">
-            <div class="card-label">Apparel · Plattform</div>
+            <span class="card-type">Apparel · Plattform</span>
             <h3 class="card-title">Handfaktur <em>Shop</em></h3>
             <p class="card-meta">
-              Apparel-Brand mit Handschrift. Eine Plattform für handerlesene
-              Stücke — <em style="font-family: 'Instrument Serif'; font-style: italic;">von der Hand zur Hand</em>.
-              Das Prinzip, das auf diesem Planeten wortwörtlich alles trägt.
+              Apparel-Brand mit Handschrift. Plattform für handerlesene
+              Stücke — von der Hand zur Hand.
             </p>
-            <div class="card-foot">
-              <span>Seit 2024</span>
-              <span class="card-foot-arrow">Shop</span>
+            <p class="card-flavor">
+              „Das Prinzip, das auf diesem Planeten alles trägt."
+            </p>
+            <div class="card-stats">
+              <div class="card-stat">
+                <span class="card-stat-label">SET</span>
+                <span class="card-stat-value">2024</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">REICHWEITE</span>
+                <span class="card-stat-value">DE</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">STATUS</span>
+                <span class="card-stat-value">Live</span>
+              </div>
             </div>
           </div>
         </a>
 
-        <!-- 02 Handfaktur Digital -->
-        <a class="card reveal" href="#" target="_blank" rel="noopener"
-           style="--card-color: #5b8def;" data-card data-card-light="true">
-          <div class="card-block">
-            <span class="card-number">02</span>
+        <!-- 02 Handfaktur Digital · COMMON -->
+        <a class="card reveal" href="https://digital.handfaktur.de/" target="_blank" rel="noopener"
+           data-card data-rarity="common" style="--card-color: #5b8def;">
+          <div class="card-art">
+            <span class="card-glyph">D</span>
+            <span class="card-index">02 / 07</span>
+            <span class="card-rarity">
+              <span class="card-rarity-dots"><span></span></span>
+              Common
+            </span>
           </div>
           <div class="card-body">
-            <div class="card-label">Dienste · SMB</div>
+            <span class="card-type">Service · SMB</span>
             <h3 class="card-title">Handfaktur <em>Digital</em></h3>
             <p class="card-meta">
-              Digitale Dienste für kleine Unternehmen — Google Business Profile,
-              Websites, Ads. Mein Ziel ist eure Unabhängigkeit. Damit ihr
-              eure Systeme irgendwann selbst führt, statt für immer in der
-              Falle zu sitzen.
+              Digitale Dienste für kleine Unternehmen. Mein Ziel ist
+              eure Unabhängigkeit — damit ihr eure Systeme irgendwann
+              selbst führt, statt für immer in der Falle zu sitzen.
             </p>
-            <div class="card-foot">
-              <span>DACH</span>
-              <span class="card-foot-arrow">Anfragen</span>
+            <p class="card-flavor">
+              „Hilfe zur Selbsthilfe, kein Abo-Käfig."
+            </p>
+            <div class="card-stats">
+              <div class="card-stat">
+                <span class="card-stat-label">SET</span>
+                <span class="card-stat-value">2024</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">REICHWEITE</span>
+                <span class="card-stat-value">DACH</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">STATUS</span>
+                <span class="card-stat-value">Live</span>
+              </div>
             </div>
           </div>
         </a>
 
-        <!-- 03 Wirtschaftspsychologie B.A. -->
-        <a class="card reveal" href="#" target="_blank" rel="noopener"
-           style="--card-color: #d9c89e;" data-card>
-          <div class="card-block">
-            <span class="card-number">03</span>
+        <!-- 03 Wirtschaftspsychologie B.A. · EPIC -->
+        <a class="card reveal" href="https://www.omnianima.com/research-and-theories/battle-pass-thesis" target="_blank" rel="noopener"
+           data-card data-rarity="epic" style="--card-color: #d9c89e;">
+          <div class="card-art">
+            <span class="card-glyph">Ψ</span>
+            <span class="card-index">03 / 07</span>
+            <span class="card-rarity">
+              <span class="card-rarity-dots"><span></span><span></span><span></span></span>
+              Epic
+            </span>
           </div>
           <div class="card-body">
-            <div class="card-label">Bachelor of Arts</div>
+            <span class="card-type">Bachelorthese</span>
             <h3 class="card-title">Wirtschafts<em>psychologie</em></h3>
             <p class="card-meta">
-              Bachelorthese zur Zerlegung des <em style="font-family: 'Instrument Serif'; font-style: italic;">Battle Pass</em>
-              in seine psychologischen Bausteine — und ihre Übertragung in
-              andere Geschäftsmodelle. Im Schnittfeld von Applied Business
-              Psychology, Consumer Psychology, Gamification, Marketing und
-              Strategic Management.
+              Zerlegung des Battle Pass in seine psychologischen Bausteine —
+              und ihre Übertragung in andere Geschäftsmodelle.
             </p>
-            <div class="card-foot">
-              <span>Akademie</span>
-              <span class="card-foot-arrow">These</span>
+            <p class="card-flavor">
+              „Applied BP · Consumer Psych · Gamification · Marketing · Strategic Mgmt."
+            </p>
+            <div class="card-stats">
+              <div class="card-stat">
+                <span class="card-stat-label">B.A.</span>
+                <span class="card-stat-value">Done</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">FELDER</span>
+                <span class="card-stat-value">5</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">PUBLIC</span>
+                <span class="card-stat-value">Yes</span>
+              </div>
             </div>
           </div>
         </a>
 
-        <!-- 04 Aikano Records -->
-        <a class="card reveal" href="#" target="_blank" rel="noopener"
-           style="--card-color: #f5cca8;" data-card>
-          <div class="card-block">
-            <span class="card-number">04</span>
+        <!-- 04 Aikano Records · RARE -->
+        <a class="card reveal" href="https://aikanorecords.com/" target="_blank" rel="noopener"
+           data-card data-rarity="rare" style="--card-color: #f5cca8;">
+          <div class="card-art">
+            <span class="card-glyph">A</span>
+            <span class="card-index">04 / 07</span>
+            <span class="card-rarity">
+              <span class="card-rarity-dots"><span></span><span></span></span>
+              Rare
+            </span>
           </div>
           <div class="card-body">
-            <div class="card-label">Musiklabel · Eigenbau</div>
+            <span class="card-type">Musiklabel · Eigenbau</span>
             <h3 class="card-title">Aikano <em>Records</em></h3>
             <p class="card-meta">
               Experimentelles Musiklabel. Konzeptalben mit fiktiven
               Künstlerpersonas — Jonas True, Luis Soul, Monara.
-              Ein eigenständiges Universum, mehrsprachig erzählt.
+              Eigenständiges Universum, mehrsprachig erzählt.
             </p>
-            <div class="card-foot">
-              <span>Seit 2023</span>
-              <span class="card-foot-arrow">Releases</span>
+            <p class="card-flavor">
+              „Drei Stimmen, eine Hand, alle Sprachen."
+            </p>
+            <div class="card-stats">
+              <div class="card-stat">
+                <span class="card-stat-label">SET</span>
+                <span class="card-stat-value">2023</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">PERSONAS</span>
+                <span class="card-stat-value">3</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">STATUS</span>
+                <span class="card-stat-value">Live</span>
+              </div>
             </div>
           </div>
         </a>
 
-        <!-- 05 Alkan Werkzeug -->
-        <a class="card reveal" href="#" target="_blank" rel="noopener"
-           style="--card-color: #d3161c;" data-card data-card-light="true">
-          <div class="card-block">
-            <span class="card-number">05</span>
+        <!-- 05 Alkan Werkzeug · LEGENDARY -->
+        <a class="card reveal" href="https://www.werkzeugzentrum.de/" target="_blank" rel="noopener"
+           data-card data-rarity="legendary" style="--card-color: #d3161c;">
+          <div class="card-art">
+            <span class="card-glyph">W</span>
+            <span class="card-index">05 / 07</span>
+            <span class="card-rarity">
+              <span class="card-rarity-dots"><span></span><span></span><span></span><span></span></span>
+              Legendary
+            </span>
           </div>
           <div class="card-body">
-            <div class="card-label">Familienbetrieb · Industrie</div>
+            <span class="card-type">Familienbetrieb · Industrie</span>
             <h3 class="card-title">Alkan <em>Werkzeug</em></h3>
             <p class="card-meta">
               Wir beliefern Deutschland seit fast zwei Jahrzehnten mit
               Spezialwerkzeugen — mit Exzellenz, Qualität und Sorgfalt.
               Ein Familienbetrieb, der weiß, was er tut.
             </p>
-            <div class="card-foot">
-              <span>Wuppertal · DE</span>
-              <span class="card-foot-arrow">Shop</span>
+            <p class="card-flavor">
+              „Werkzeuge die halten. Hände die wissen."
+            </p>
+            <div class="card-stats">
+              <div class="card-stat">
+                <span class="card-stat-label">SEIT</span>
+                <span class="card-stat-value">~2007</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">REICHW.</span>
+                <span class="card-stat-value">DE</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">STATUS</span>
+                <span class="card-stat-value">Live</span>
+              </div>
             </div>
           </div>
         </a>
@@ -1097,124 +1376,108 @@
       </div>
     </section>
 
-    <!-- Marquee 2 (transition to dark) -->
-    <div class="marquee reverse" aria-hidden="true">
+    <!-- Marquee 2 -->
+    <div class="marquee" aria-hidden="true">
       <div class="marquee-track" data-marquee>
-        <div class="marquee-item">Klang</div>
-        <div class="marquee-item">Kommerz</div>
-        <div class="marquee-item">Konzept</div>
-        <div class="marquee-item">Klang</div>
-        <div class="marquee-item">Kommerz</div>
-        <div class="marquee-item">Konzept</div>
+        <div class="marquee-item"><em>Klang</em></div>
+        <div class="marquee-item"><em>Kommerz</em></div>
+        <div class="marquee-item"><em>Konzept</em></div>
+        <div class="marquee-item"><em>Klang</em></div>
+        <div class="marquee-item"><em>Kommerz</em></div>
+        <div class="marquee-item"><em>Konzept</em></div>
       </div>
     </div>
 
     <!-- ============================================================
-         SPIEL (dark inverted)
+         SPIEL
          ============================================================ -->
-    <section class="section dark" id="spiel">
+    <section class="section" id="spiel">
       <header class="section-header reveal">
-        <div class="section-eyebrow">II — Spiel</div>
+        <div class="section-eyebrow">Pack II — Spiel</div>
         <div class="section-title-row">
-          <h2 class="section-title">Spiel.</h2>
-          <p class="section-desc">
-            Was aus Neugier entsteht. Konzepte und Werkzeuge die
-            irgendwo zwischen Hobby und Strategie leben.
-          </p>
+          <h2 class="section-title"><em>Spiel.</em></h2>
+          <div class="section-meta">
+            <span class="section-meta-line">2 Cards</span>
+            <span class="section-meta-line">1 Epic · 1 Common</span>
+          </div>
         </div>
       </header>
 
       <div class="grid">
 
-        <!-- 06 Chunkplan -->
-        <a class="card reveal" href="#" target="_blank" rel="noopener"
-           style="--card-color: #2dd4a8;" data-card>
-          <div class="card-block">
-            <span class="card-number">06</span>
+        <!-- 06 Chunkplan · COMMON · LOCKED -->
+        <a class="card reveal locked" href="#"
+           data-card data-rarity="common" style="--card-color: #2dd4a8;">
+          <div class="card-art">
+            <span class="card-glyph">C</span>
+            <span class="card-index">06 / 07</span>
+            <span class="card-rarity">
+              <span class="card-rarity-dots"><span></span></span>
+              Common
+            </span>
           </div>
           <div class="card-body">
-            <div class="card-label">App · Android</div>
+            <span class="card-type">App · Android</span>
             <h3 class="card-title">Chunk<em>plan</em></h3>
             <p class="card-meta">
               Eine App, die Zeit in Chunks zerlegt. Damit der Tag
               wieder dir gehört — nicht andersrum.
             </p>
-            <div class="card-foot">
-              <span>Play Store</span>
-              <span class="card-foot-arrow">Laden</span>
+            <p class="card-flavor">
+              „Plane in Blöcken. Lebe in Momenten."
+            </p>
+            <div class="card-stats">
+              <div class="card-stat">
+                <span class="card-stat-label">SET</span>
+                <span class="card-stat-value">2025</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">PLATTF.</span>
+                <span class="card-stat-value">Android</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">STATUS</span>
+                <span class="card-stat-value">Bald</span>
+              </div>
             </div>
           </div>
         </a>
 
-        <!-- 07 Ensorena -->
-        <a class="card reveal" href="#" data-card
-           style="--card-color: #8b5cf6;" data-card-light="true">
-          <div class="card-block">
-            <span class="card-number">07</span>
+        <!-- 07 Ensorena · EPIC -->
+        <a class="card reveal" href="https://www.omnianima.com/creative-work/portfolio/ensorena" target="_blank" rel="noopener"
+           data-card data-rarity="epic" style="--card-color: #8b5cf6;">
+          <div class="card-art">
+            <span class="card-glyph">E</span>
+            <span class="card-index">07 / 07</span>
+            <span class="card-rarity">
+              <span class="card-rarity-dots"><span></span><span></span><span></span></span>
+              Epic
+            </span>
           </div>
           <div class="card-body">
-            <div class="card-label">Spielkonzept · Vault</div>
+            <span class="card-type">Spielkonzept · Vault</span>
             <h3 class="card-title">En<em>sorena</em></h3>
             <p class="card-meta">
               Eine ausgearbeitete Spielwelt. Charaktere, Mechaniken,
               Lobby-System, kompletter Game Loop — alles gedacht,
               im Vault. Wartet auf den richtigen Moment.
             </p>
-            <div class="card-foot">
-              <span>On Hold</span>
-              <span class="card-foot-arrow">Vault</span>
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- Marquee 3 (back to cream) -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track" data-marquee>
-        <div class="marquee-item">Was unter dem Boden läuft</div>
-        <div class="marquee-item">Trägt was darüber steht</div>
-        <div class="marquee-item">Was unter dem Boden läuft</div>
-        <div class="marquee-item">Trägt was darüber steht</div>
-      </div>
-    </div>
-
-    <!-- ============================================================
-         SCHATTEN (feature card)
-         ============================================================ -->
-    <section class="section" id="schatten">
-      <header class="section-header reveal">
-        <div class="section-eyebrow">III — Schatten</div>
-        <div class="section-title-row">
-          <h2 class="section-title">Schatten.</h2>
-          <p class="section-desc">
-            Was niemand fragt, aber alles trägt. Persönliche Arbeit,
-            Handwerk im Hintergrund.
-          </p>
-        </div>
-      </header>
-
-      <div class="grid grid-feature">
-
-        <a class="card card-feature reveal" href="#" data-card
-           style="--card-color: #c084fc;" data-card-light="true">
-          <div class="card-block">
-            <span class="card-number">08</span>
-          </div>
-          <div class="card-body">
-            <div class="card-label">Handwerk · Sprache</div>
-            <h3 class="card-title">Mehrsprachiges <em>Songwriting</em></h3>
-            <p class="card-meta">
-              Lieder geschrieben in Deutsch, Spanisch, Französisch,
-              Swahili, Aramäisch, Russisch. Jede Sprache ist eine andere
-              Art zu denken, ein anderer Klang im Mund, eine andere
-              Logik in der Strophe. Was unter den Aikano-Releases liegt
-              und sie überhaupt trägt — der Schatten unter dem Universum.
+            <p class="card-flavor">
+              „Eine Welt im Wartezustand."
             </p>
-            <div class="card-foot">
-              <span>Sechs Sprachen · laufend</span>
-              <span class="card-foot-arrow">Lesen</span>
+            <div class="card-stats">
+              <div class="card-stat">
+                <span class="card-stat-label">SCOPE</span>
+                <span class="card-stat-value">AAA</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">GENRE</span>
+                <span class="card-stat-value">MMO·BR</span>
+              </div>
+              <div class="card-stat">
+                <span class="card-stat-label">STATUS</span>
+                <span class="card-stat-value">Hold</span>
+              </div>
             </div>
           </div>
         </a>
@@ -1228,31 +1491,57 @@
        FOOTER
        ============================================================ -->
   <footer class="footer">
-    <div class="footer-inner">
-      <h2 class="footer-headline reveal">
-        Wenn etwas <em>widerhallt</em> —<br>
-        schreib mir.
-      </h2>
+    <h2 class="footer-headline reveal">
+      Du hast die <em>Sammlung</em> durchgespielt.<br>
+      Was dich widerhallt — <em>schreib mir</em>.
+    </h2>
 
-      <div class="footer-grid reveal">
-        <div class="footer-links">
-          <div>
-            <div class="footer-col-label">Direkt</div>
-            <a class="footer-link" href="mailto:hello@furkanalkan.com" data-magnetic>hello@furkanalkan.com</a>
-          </div>
-          <div>
-            <div class="footer-col-label">Sozial</div>
-            <a class="footer-link" href="https://www.linkedin.com/in/furkan-alkan-389916182/" target="_blank" rel="noopener" data-magnetic>LinkedIn</a>
-          </div>
+    <div class="footer-grid reveal">
+      <div class="footer-links">
+        <div>
+          <div class="footer-col-label">Direkt</div>
+          <a class="footer-link" href="mailto:hello@furkanalkan.com">hello@furkanalkan.com</a>
+        </div>
+        <div>
+          <div class="footer-col-label">Sozial</div>
+          <a class="footer-link" href="https://www.linkedin.com/in/furkan-alkan-389916182/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
+    </div>
 
-      <div class="footer-bottom">
-        <span>© 2026 Furkan Alkan · Wuppertal</span>
-        <span>Built solo</span>
-      </div>
+    <div class="footer-bottom">
+      <span>© 2026 Furkan Alkan · Germany</span>
+      <span>Hint: try typing &nbsp;<em style="font-family: 'Newsreader'; font-style: italic;">fa</em></span>
     </div>
   </footer>
+
+  <!-- ============================================================
+       SECRET CARD (Hidden)
+       ============================================================ -->
+  <div class="secret-overlay" id="secretOverlay">
+    <button class="secret-close" id="secretClose" aria-label="Close">×</button>
+    <div class="secret-card">
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rarity-legendary); display: flex; justify-content: space-between; margin-bottom: 1.5rem;">
+          <span>?? / 07</span>
+          <span>Mythic ★★★★★</span>
+        </div>
+        <div style="font-family: 'Newsreader', serif; font-style: italic; font-size: 5rem; line-height: 1; color: var(--text-primary); margin-bottom: 1rem;">?</div>
+        <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 400; font-size: 1.6rem; color: var(--text-primary); margin-bottom: 0.75rem;">Der <em style="font-family: 'Newsreader'; color: var(--brand-aikano);">Schatten</em></h3>
+        <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-secondary); margin-bottom: 1rem;">
+          Was das Tageslicht noch nicht gesehen hat. Mehrsprachige Lyrik
+          in sechs Sprachen, Frameworks, ungebaute Welten. Diese Karte
+          existiert, wird aber nicht gezeigt.
+        </p>
+        <p style="font-family: 'Newsreader', serif; font-style: italic; font-size: 0.85rem; line-height: 1.4; color: var(--text-tertiary); border-top: 1px dashed var(--border); padding-top: 0.75rem;">
+          „Schreib mir, wenn du diesen Schatten sehen willst."
+        </p>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-tertiary);">
+        You unlocked a hidden card · esc to close
+      </div>
+    </div>
+  </div>
 
   <!-- ============================================================
        SCRIPTS
@@ -1262,29 +1551,21 @@
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
   <script>
-    /* ============================================================
-       LENIS — smooth scroll
-       ============================================================ */
+    /* === LENIS === */
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       smoothTouch: false,
     });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
 
-    /* Hook Lenis into GSAP ScrollTrigger */
     gsap.registerPlugin(ScrollTrigger);
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((time) => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
 
-    /* Anchor links use Lenis */
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
       link.addEventListener("click", (e) => {
         const id = link.getAttribute("href");
@@ -1292,68 +1573,54 @@
           const target = document.querySelector(id);
           if (target) {
             e.preventDefault();
-            lenis.scrollTo(target, { offset: -40 });
+            lenis.scrollTo(target, { offset: -80 });
           }
         }
       });
     });
 
-    /* ============================================================
-       HERO — line reveal
-       ============================================================ */
-    gsap.to(".hero-name .line span", {
+    /* === HERO REVEAL === */
+    gsap.to(".hero-title .line span", {
       y: 0,
-      duration: 1.2,
-      stagger: 0.12,
+      duration: 1.3,
+      stagger: 0.14,
       ease: "expo.out",
-      delay: 0.2,
-    });
-
-    gsap.to(".hero-eyebrow", {
-      opacity: 1,
-      duration: 1,
-      ease: "expo.out",
-      delay: 0.1,
+      delay: 0.3,
     });
 
     gsap.to(".hero-tagline", {
       opacity: 1,
-      y: 0,
       duration: 1.2,
       ease: "expo.out",
-      delay: 1.0,
+      delay: 1.1,
     });
 
-    gsap.to(".hero-bottom", {
+    gsap.to(".hero-hud", {
       opacity: 1,
       duration: 1,
       ease: "expo.out",
       delay: 1.4,
     });
 
-    /* ============================================================
-       SCROLL REVEALS
-       ============================================================ */
-    const revealEls = document.querySelectorAll(".reveal");
-    revealEls.forEach((el, i) => {
+    /* === SCROLL REVEALS === */
+    document.querySelectorAll(".reveal").forEach((el, i) => {
       ScrollTrigger.create({
         trigger: el,
-        start: "top 85%",
+        start: "top 88%",
         once: true,
         onEnter: () => {
           el.classList.add("visible");
-          // Stagger cards within same grid
           const card = el.closest(".card");
           if (card) {
             const siblings = [...card.parentElement.querySelectorAll(".card")];
             const idx = siblings.indexOf(card);
-            gsap.fromTo(
-              el,
-              { opacity: 0, y: 50 },
+            gsap.fromTo(el,
+              { opacity: 0, y: 60, rotateX: -10 },
               {
                 opacity: 1,
                 y: 0,
-                duration: 1,
+                rotateX: 0,
+                duration: 1.1,
                 ease: "expo.out",
                 delay: idx * 0.1,
               }
@@ -1363,153 +1630,160 @@
       });
     });
 
-    /* ============================================================
-       MARQUEE — scroll velocity hook
-       ============================================================ */
-    document.querySelectorAll("[data-marquee]").forEach((track) => {
-      let baseDuration = 40;
-      track.style.setProperty("--mq-duration", `${baseDuration}s`);
-    });
-
-    let scrollVelocity = 0;
-    let lastScroll = 0;
-    let velocityRaf = null;
-
-    lenis.on("scroll", ({ scroll }) => {
-      const delta = scroll - lastScroll;
-      lastScroll = scroll;
-      scrollVelocity = delta;
-
-      if (velocityRaf) cancelAnimationFrame(velocityRaf);
-      velocityRaf = requestAnimationFrame(applyVelocity);
-    });
-
-    function applyVelocity() {
-      document.querySelectorAll("[data-marquee]").forEach((track) => {
-        const boost = Math.min(20, Math.abs(scrollVelocity) * 0.1);
-        const newDur = Math.max(8, 40 - boost);
-        track.style.animationDuration = `${newDur}s`;
+    /* === MARQUEES with scroll velocity === */
+    const marquees = document.querySelectorAll("[data-marquee]");
+    marquees.forEach((track, i) => {
+      gsap.to(track, {
+        xPercent: -50,
+        duration: 40 + i * 5,
+        ease: "none",
+        repeat: -1,
       });
-      // Decay
-      scrollVelocity *= 0.95;
-      if (Math.abs(scrollVelocity) > 0.5) {
-        velocityRaf = requestAnimationFrame(applyVelocity);
-      } else {
-        document.querySelectorAll("[data-marquee]").forEach((track) => {
-          track.style.animationDuration = "40s";
+    });
+
+    /* === CARD COUNTER (scroll progress) === */
+    const counterEl = document.querySelector("[data-card-counter]");
+    if (counterEl) {
+      const cards = document.querySelectorAll("[data-card]");
+      const total = cards.length;
+      const updateCounter = () => {
+        let seen = 0;
+        const triggerY = window.innerHeight * 0.7;
+        cards.forEach((c) => {
+          if (c.getBoundingClientRect().top < triggerY) seen++;
         });
-      }
+        counterEl.textContent = `${seen}/${total}`;
+      };
+      lenis.on("scroll", updateCounter);
+      updateCounter();
     }
 
-    /* ============================================================
-       CUSTOM CURSOR
-       ============================================================ */
+    /* === CARD TILT + HOLO === */
+    document.querySelectorAll("[data-card]").forEach((card) => {
+      const art = card.querySelector(".card-art");
+      let rafId = null;
+      card.addEventListener("mousemove", (e) => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty("--mx", x.toFixed(2));
+          card.style.setProperty("--my", y.toFixed(2));
+          card.style.setProperty("--tilt-x", `${((y - 50) * -0.1).toFixed(2)}deg`);
+          card.style.setProperty("--tilt-y", `${((x - 50) *  0.1).toFixed(2)}deg`);
+        });
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.setProperty("--mx", 50);
+        card.style.setProperty("--my", 50);
+        card.style.setProperty("--tilt-x", "0deg");
+        card.style.setProperty("--tilt-y", "0deg");
+      });
+    });
+
+    /* === CUSTOM CURSOR === */
     (function () {
       if (window.matchMedia("(hover: none)").matches) return;
+      const core = document.querySelector(".cursor-core");
+      const frame = document.querySelector(".cursor-frame");
+      if (!core || !frame) return;
 
-      const dot = document.querySelector(".cursor-dot");
-      const ring = document.querySelector(".cursor-ring");
-      if (!dot || !ring) return;
-
-      let mx = window.innerWidth / 2;
-      let my = window.innerHeight / 2;
-      let dx = mx, dy = my;
-      let rx = mx, ry = my;
+      let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+      let cx = mx, cy = my, fx = mx, fy = my;
 
       document.addEventListener("mousemove", (e) => {
-        mx = e.clientX;
-        my = e.clientY;
+        mx = e.clientX; my = e.clientY;
       });
 
       function tick() {
-        dx += (mx - dx) * 0.6;
-        dy += (my - dy) * 0.6;
-        rx += (mx - rx) * 0.15;
-        ry += (my - ry) * 0.15;
-        dot.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
-        ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+        cx += (mx - cx) * 0.55;
+        cy += (my - cy) * 0.55;
+        fx += (mx - fx) * 0.18;
+        fy += (my - fy) * 0.18;
+        core.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+        frame.style.transform = `translate3d(${fx}px, ${fy}px, 0)`;
         requestAnimationFrame(tick);
       }
       tick();
 
-      /* Expand on hover-targets */
-      document.querySelectorAll("a, button, [data-card], [data-magnetic]").forEach((el) => {
-        el.addEventListener("mouseenter", () => ring.classList.add("expanded"));
-        el.addEventListener("mouseleave", () => ring.classList.remove("expanded"));
-      });
-    })();
-
-    /* ============================================================
-       MAGNETIC LINKS
-       ============================================================ */
-    (function () {
-      if (window.matchMedia("(hover: none)").matches) return;
-      document.querySelectorAll("[data-magnetic]").forEach((el) => {
-        const strength = 0.35;
-        el.addEventListener("mousemove", (e) => {
-          const rect = el.getBoundingClientRect();
-          const cx = rect.left + rect.width / 2;
-          const cy = rect.top + rect.height / 2;
-          const dx = (e.clientX - cx) * strength;
-          const dy = (e.clientY - cy) * strength;
-          gsap.to(el, { x: dx, y: dy, duration: 0.6, ease: "expo.out" });
+      /* Card-hover: frame locks to card */
+      document.querySelectorAll("[data-card]").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          const rect = card.getBoundingClientRect();
+          frame.style.setProperty("--lock-w", `${rect.width}px`);
+          frame.style.setProperty("--lock-h", `${rect.height}px`);
+          const rarityCol = getComputedStyle(card).getPropertyValue("--rarity-color").trim();
+          frame.style.setProperty("--rarity", rarityCol);
+          frame.classList.add("lock");
+          core.classList.add("shrink");
+          /* Position the frame at the card center, not following cursor */
+          fx = rect.left + rect.width / 2;
+          fy = rect.top + rect.height / 2;
         });
-        el.addEventListener("mouseleave", () => {
-          gsap.to(el, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.4)" });
+        card.addEventListener("mouseleave", () => {
+          frame.classList.remove("lock");
+          core.classList.remove("shrink");
         });
       });
     })();
 
-    /* ============================================================
-       CARD — radial light follow
-       ============================================================ */
-    document.querySelectorAll("[data-card]").forEach((card) => {
-      const block = card.querySelector(".card-block");
-      if (!block) return;
-      card.addEventListener("mousemove", (e) => {
-        const rect = block.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        block.style.setProperty("--mx", `${x}%`);
-        block.style.setProperty("--my", `${y}%`);
-      });
-    });
-
-    /* ============================================================
-       NUMBER COUNTERS
-       ============================================================ */
+    /* === HERO STATS COUNTERS === */
     document.querySelectorAll("[data-count]").forEach((el) => {
       const target = parseInt(el.dataset.count, 10);
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 95%",
-        once: true,
-        onEnter: () => {
-          gsap.to({ val: 0 }, {
-            val: target,
-            duration: 1.8,
-            ease: "expo.out",
-            onUpdate() {
-              el.textContent = Math.round(this.targets()[0].val);
-            },
-          });
+      gsap.fromTo({ v: 0 }, { v: 0 }, {
+        v: target,
+        duration: 1.8,
+        delay: 1.6,
+        ease: "expo.out",
+        onUpdate() {
+          el.textContent = Math.round(this.targets()[0].v);
         },
       });
     });
 
-    /* ============================================================
-       SCROLL PROGRESS
-       ============================================================ */
+    /* === SCROLL PROGRESS === */
     const progress = document.querySelector(".scroll-progress");
     lenis.on("scroll", ({ scroll, limit }) => {
       const p = limit > 0 ? scroll / limit : 0;
       progress.style.setProperty("--progress", p.toFixed(3));
     });
 
-    /* ============================================================
-       SECTION CHANGE — invert mix-blend cursor near dark sections
-       (cursor uses mix-blend-mode difference already, so it auto-inverts)
-       ============================================================ */
+    /* === EASTER EGG: type "fa" to unlock secret card === */
+    (function () {
+      let buf = "";
+      const overlay = document.getElementById("secretOverlay");
+      const closeBtn = document.getElementById("secretClose");
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && overlay.classList.contains("active")) {
+          overlay.classList.remove("active");
+          lenis.start();
+          return;
+        }
+        if (e.key.length === 1) {
+          buf += e.key.toLowerCase();
+          if (buf.length > 4) buf = buf.slice(-4);
+          if (buf.endsWith("fa")) {
+            overlay.classList.add("active");
+            lenis.stop();
+            buf = "";
+          }
+        }
+      });
+
+      closeBtn.addEventListener("click", () => {
+        overlay.classList.remove("active");
+        lenis.start();
+      });
+
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) {
+          overlay.classList.remove("active");
+          lenis.start();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
