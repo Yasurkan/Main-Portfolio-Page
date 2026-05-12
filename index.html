@@ -4,50 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Furkan Alkan — Werk, Spiel, Schatten</title>
-  <meta name="description" content="Portfolio von Furkan Alkan. Solo-Operator zwischen Code, Klang und Kommerz." />
+  <meta name="description" content="Portfolio von Furkan Alkan. Solo-Operator zwischen Klang, Kommerz und Konzept." />
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff6ec7'/%3E%3Cstop offset='.5' stop-color='%236ec3ff'/%3E%3Cstop offset='1' stop-color='%237dffae'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='%2308080c'/%3E%3Ctext x='50%25' y='62%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia, serif' font-style='italic' font-weight='400' font-size='22' fill='url(%23g)'%3EF%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f4ede1'/%3E%3Ctext x='50%25' y='66%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia, serif' font-style='italic' font-weight='400' font-size='22' fill='%231a1612'%3EF%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
-       FURKAN ALKAN — Portfolio v2
+       FURKAN ALKAN — Portfolio v3 (Warm Editorial)
        ============================================================ */
 
     :root {
-      --bg-deep: #08080c;
-      --bg-base: #0f0f15;
-      --bg-card: #16161e;
-      --bg-card-elev: #1d1d28;
+      /* === SURFACES === */
+      --bg: #f4ede1;
+      --bg-warm: #ede4d3;
+      --bg-dark: #1a1612;
+      --bg-dark-2: #221d18;
 
-      --text-primary: #f5f3ee;
-      --text-secondary: #a8a6a0;
-      --text-tertiary: #6a6864;
-      --text-quaternary: #3a3833;
+      /* === TEXT === */
+      --ink: #1a1612;
+      --ink-soft: #3a342d;
+      --ink-mid: #6a635a;
+      --ink-mute: #a8a094;
+      --ink-quiet: #c4bcaf;
 
-      --brand-handfaktur-shop: #b8e8bc;
-      --brand-handfaktur-digital: #5b8def;
+      --cream: #f4ede1;
+      --cream-soft: #e6dccb;
+      --cream-mute: #b8ad99;
+
+      /* === BRAND COLORS === */
+      --brand-shop: #b8e8bc;
+      --brand-digital: #5b8def;
+      --brand-academic: #d9c89e;
       --brand-aikano: #f5cca8;
-      --brand-werkzeug: #9c958a;
-      --brand-academic: #e8e0d0;
-      --brand-game: #b06bff;
-      --brand-chunkplan: #58e6c9;
-      --brand-infra: #ff7a5c;
+      --brand-werkzeug: #d3161c;
+      --brand-chunkplan: #2dd4a8;
+      --brand-ensorena: #8b5cf6;
+      --brand-songwriting: #c084fc;
 
-      --holo-1: #ff6ec7;
-      --holo-2: #6ec3ff;
-      --holo-3: #7dffae;
-      --holo-4: #ffd86e;
-      --holo-5: #ff8e6e;
+      /* === STRUCTURE === */
+      --border: rgba(26, 22, 18, 0.12);
+      --border-soft: rgba(26, 22, 18, 0.06);
+      --border-on-dark: rgba(244, 237, 225, 0.12);
 
-      --border-subtle: rgba(245, 243, 238, 0.08);
-      --border-mid: rgba(245, 243, 238, 0.16);
-
+      /* === MOTION === */
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
       --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
     }
 
     *, *::before, *::after {
@@ -56,256 +62,369 @@
       padding: 0;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: auto; /* Lenis handles smooth scroll */
+    }
 
     body {
-      font-family: "Geist Mono", ui-monospace, monospace;
-      font-size: 15px;
+      font-family: "Instrument Sans", system-ui, sans-serif;
+      font-size: 16px;
       line-height: 1.55;
-      background: var(--bg-deep);
-      color: var(--text-primary);
+      background: var(--bg);
+      color: var(--ink);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
       min-height: 100vh;
     }
 
+    /* Paper texture overlay */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(245, 204, 168, 0.07), transparent 70%),
-        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(91, 141, 239, 0.07), transparent 70%),
-        radial-gradient(ellipse 60% 40% at 0% 80%, rgba(184, 232, 188, 0.05), transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.5'/></svg>");
-      opacity: 0.025;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)' opacity='0.7'/></svg>");
+      opacity: 0.04;
       pointer-events: none;
       z-index: 1;
-      mix-blend-mode: overlay;
+      mix-blend-mode: multiply;
     }
 
-    main {
-      position: relative;
-      z-index: 2;
+    main { position: relative; z-index: 2; }
+
+    /* Hide focus outline but preserve for keyboard */
+    :focus { outline: none; }
+    :focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 4px;
     }
 
-    /* === Scroll progress === */
+    /* ============================================================
+       CUSTOM CURSOR (desktop only)
+       ============================================================ */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 999;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+      mix-blend-mode: difference;
+    }
+
+    .cursor-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--cream);
+      border-radius: 50%;
+      margin: -3px 0 0 -3px;
+    }
+
+    .cursor-ring {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--cream);
+      border-radius: 50%;
+      margin: -18px 0 0 -18px;
+      transition: width 0.3s var(--ease-out-expo),
+                  height 0.3s var(--ease-out-expo),
+                  margin 0.3s var(--ease-out-expo),
+                  border-color 0.3s ease,
+                  background 0.3s ease;
+    }
+
+    .cursor-ring.expanded {
+      width: 64px;
+      height: 64px;
+      margin: -32px 0 0 -32px;
+      background: rgba(244, 237, 225, 0.1);
+    }
+
+    @media (hover: none), (max-width: 900px) {
+      .cursor-dot, .cursor-ring { display: none; }
+    }
+
+    /* ============================================================
+       SCROLL PROGRESS
+       ============================================================ */
     .scroll-progress {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       height: 2px;
       width: 100%;
       transform-origin: left;
       transform: scaleX(var(--progress, 0));
-      background: linear-gradient(90deg, var(--holo-1), var(--holo-2), var(--holo-3), var(--holo-4));
-      background-size: 200% 100%;
-      animation: holoShift 6s linear infinite;
+      background: var(--ink);
       z-index: 100;
       pointer-events: none;
+      mix-blend-mode: difference;
     }
 
-    @keyframes holoShift {
-      from { background-position: 0% 50%; }
-      to   { background-position: 200% 50%; }
+    /* ============================================================
+       UTILITY: Container & nav
+       ============================================================ */
+    .container {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 3vw, 2.5rem);
     }
 
-    /* === Cursor blob === */
-    .cursor-blob {
+    /* ============================================================
+       TOP NAV
+       ============================================================ */
+    .nav {
       position: fixed;
-      top: 0; left: 0;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245, 204, 168, 0.07), transparent 65%);
-      pointer-events: none;
-      transform: translate3d(-50%, -50%, 0);
-      z-index: 1;
-      mix-blend-mode: screen;
-      will-change: transform;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.25rem, 3vw, 2.5rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 50;
+      mix-blend-mode: difference;
+      color: var(--cream);
     }
 
-    @media (hover: none), (max-width: 768px) {
-      .cursor-blob { display: none; }
+    .nav-mark {
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
     }
 
-    /* === Hero === */
-    .hero {
-      min-height: 100vh;
-      padding: clamp(1.25rem, 3vw, 2.5rem);
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 2rem;
+    .nav-links {
+      display: flex;
+      gap: clamp(1rem, 2.5vw, 2rem);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
       position: relative;
     }
 
-    .hero-top, .hero-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-tertiary);
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .hero-top span:last-child::before {
-      content: "●";
-      color: var(--brand-chunkplan);
-      margin-right: 0.5em;
-      animation: pulse 2.4s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.25; }
-    }
-
-    .hero-center {
-      display: grid;
-      align-content: center;
-      max-width: 1400px;
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
       width: 100%;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s var(--ease-out-expo);
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      min-height: 100vh;
+      padding: clamp(8rem, 12vw, 12rem) clamp(1.25rem, 3vw, 2.5rem) clamp(2rem, 4vw, 4rem);
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 2rem;
+      position: relative;
+      max-width: 1480px;
       margin: 0 auto;
     }
 
-    .hero-name {
-      font-family: "Fraunces", serif;
-      font-variation-settings: "opsz" 144, "SOFT" 100;
-      font-weight: 300;
-      font-size: clamp(3rem, 13vw, 11rem);
-      line-height: 0.88;
-      letter-spacing: -0.04em;
-      color: var(--text-primary);
+    .hero-display {
+      display: grid;
+      align-content: center;
     }
 
-    .hero-letter {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(0.6em) rotateZ(-6deg);
-      animation: letterRise 1.1s var(--ease-out-expo) forwards;
-    }
-
-    @keyframes letterRise {
-      to { opacity: 1; transform: translateY(0) rotateZ(0); }
-    }
-
-    .hero-name em {
-      font-style: italic;
-      font-weight: 400;
-      background: linear-gradient(135deg, var(--holo-1), var(--holo-2), var(--holo-3));
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
-      animation: holoShift 5s ease-in-out infinite;
-    }
-
-    .hero-tagline {
-      margin-top: clamp(1.5rem, 3vw, 2.5rem);
-      max-width: 680px;
-      font-size: clamp(0.9rem, 1.15vw, 1rem);
-      line-height: 1.65;
-      color: var(--text-secondary);
-      opacity: 0;
-      animation: fadeInUp 1.2s var(--ease-out-expo) 1.4s forwards;
-    }
-
-    .hero-tagline strong {
-      color: var(--text-primary);
-      font-weight: 500;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-meta {
-      display: flex;
-      gap: clamp(1rem, 3vw, 2rem);
-      flex-wrap: wrap;
-    }
-
-    .hero-meta div span {
-      color: var(--text-primary);
-      margin-left: 0.5em;
-    }
-
-    .scroll-indicator {
-      writing-mode: vertical-rl;
+    .hero-eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
 
-    .scroll-indicator::after {
+    .hero-eyebrow::before {
       content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--ink-mid);
+    }
+
+    .hero-name {
+      font-family: "Instrument Serif", serif;
+      font-weight: 400;
+      font-size: clamp(3.5rem, 14vw, 13rem);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+    }
+
+    .hero-name .line {
       display: block;
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, var(--text-tertiary), transparent);
-      animation: scrollHint 2.4s ease-in-out infinite;
+      overflow: hidden;
     }
 
-    @keyframes scrollHint {
-      0%, 100% { transform: scaleY(0.4); transform-origin: top; }
-      50% { transform: scaleY(1); transform-origin: top; }
+    .hero-name .line span {
+      display: inline-block;
     }
 
-    .hero-top { opacity: 0; animation: fadeInUp 1s var(--ease-out-expo) 0.1s forwards; }
-    .hero-bottom { opacity: 0; animation: fadeInUp 1s var(--ease-out-expo) 1.8s forwards; }
+    .hero-name em {
+      font-style: italic;
+    }
 
-    /* === Marquee === */
+    /* Asymmetric line offsets */
+    .hero-name .line:nth-child(2) {
+      padding-left: clamp(2rem, 8vw, 8rem);
+    }
+
+    .hero-name .line:nth-child(3) {
+      padding-left: clamp(4rem, 16vw, 16rem);
+    }
+
+    .hero-tagline {
+      margin-top: clamp(2rem, 4vw, 3rem);
+      max-width: 580px;
+      margin-left: auto;
+      font-size: clamp(1rem, 1.15vw, 1.05rem);
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .hero-tagline strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .hero-tagline em {
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-size: 1.1em;
+      font-weight: 400;
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: clamp(1rem, 3vw, 2.5rem);
+    }
+
+    .hero-stat .num {
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      display: block;
+      margin-top: 0.25rem;
+      text-transform: none;
+    }
+
+    .hero-scroll {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-scroll::after {
+      content: "↓";
+      animation: bob 2s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    /* ============================================================
+       MARQUEE
+       ============================================================ */
     .marquee {
       overflow: hidden;
-      padding: clamp(2rem, 4vw, 3rem) 0;
-      border-block: 1px solid var(--border-subtle);
-      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+      border-block: 1px solid var(--border);
+      position: relative;
+    }
+
+    .marquee.on-dark {
+      border-block: 1px solid var(--border-on-dark);
     }
 
     .marquee-track {
       display: flex;
-      gap: 4rem;
-      animation: marqueeScroll 35s linear infinite;
+      gap: 3rem;
+      animation: marqueeScroll var(--mq-duration, 40s) linear infinite;
       width: max-content;
       will-change: transform;
     }
 
-    .marquee:hover .marquee-track {
-      animation-play-state: paused;
-    }
-
     .marquee-item {
-      font-family: "Fraunces", serif;
+      font-family: "Instrument Serif", serif;
       font-style: italic;
-      font-variation-settings: "opsz" 144;
-      font-weight: 300;
-      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 400;
+      font-size: clamp(2.5rem, 6vw, 5rem);
       line-height: 1;
-      color: var(--text-quaternary);
-      letter-spacing: -0.02em;
+      color: var(--ink);
+      letter-spacing: -0.03em;
       white-space: nowrap;
       display: flex;
       align-items: center;
-      gap: 4rem;
+      gap: 3rem;
+    }
+
+    .marquee.on-dark .marquee-item {
+      color: var(--cream);
     }
 
     .marquee-item::after {
       content: "✦";
       font-style: normal;
-      font-size: 0.5em;
+      font-size: 0.45em;
+      color: var(--brand-werkzeug);
+      vertical-align: middle;
+    }
+
+    .marquee.reverse .marquee-track {
+      animation-direction: reverse;
+    }
+
+    .marquee.on-dark .marquee-item::after {
       color: var(--brand-aikano);
     }
 
@@ -314,423 +433,437 @@
       to   { transform: translateX(-50%); }
     }
 
-    .marquee.reverse .marquee-track {
-      animation-direction: reverse;
-      animation-duration: 45s;
-    }
-    .marquee.reverse .marquee-item::after {
-      content: "—";
-      color: var(--brand-handfaktur-digital);
+    /* ============================================================
+       SECTIONS
+       ============================================================ */
+    .section {
+      padding: clamp(6rem, 12vw, 10rem) 0;
     }
 
-    /* === Sections === */
-    .section {
-      padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 3vw, 2.5rem);
-      max-width: 1400px;
-      margin: 0 auto;
+    .section.dark {
+      background: var(--bg-dark);
+      color: var(--cream);
     }
+
+    .section.dark .section-eyebrow { color: var(--ink-quiet); }
+    .section.dark .section-eyebrow::before { background: var(--ink-quiet); }
+    .section.dark .section-desc { color: var(--cream-mute); }
 
     .section-header {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: clamp(1.5rem, 4vw, 4rem);
-      align-items: end;
-      margin-bottom: clamp(3rem, 6vw, 5rem);
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border-subtle);
+      grid-template-columns: 1fr;
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+      margin-bottom: clamp(4rem, 8vw, 6rem);
+      max-width: 1480px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 clamp(1.25rem, 3vw, 2.5rem);
     }
 
-    .section-number {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      color: var(--text-tertiary);
+    .section-eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
+      color: var(--ink-mid);
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
 
-    .section-number::before {
+    .section-eyebrow::before {
       content: "";
       width: 0;
       height: 1px;
-      background: var(--text-tertiary);
+      background: var(--ink-mid);
       transition: width 1s var(--ease-out-expo) 0.2s;
     }
 
-    .reveal-left.visible .section-number::before {
-      width: 40px;
+    .reveal.visible .section-eyebrow::before { width: 32px; }
+
+    .section-title-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(1.5rem, 4vw, 4rem);
+      align-items: end;
     }
 
     .section-title {
-      font-family: "Fraunces", serif;
-      font-variation-settings: "opsz" 144;
-      font-weight: 300;
-      font-size: clamp(2.5rem, 7vw, 5rem);
-      line-height: 1;
-      letter-spacing: -0.03em;
-      color: var(--text-primary);
+      font-family: "Instrument Serif", serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(4rem, 12vw, 10rem);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
     }
 
-    .section-title em { font-style: italic; }
-
-    .section-description {
-      max-width: 520px;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
+    .section-desc {
+      max-width: 460px;
+      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+      line-height: 1.6;
+      color: var(--ink-soft);
+      padding-bottom: 0.75rem;
+      justify-self: end;
     }
 
-    /* === Grid === */
+    @media (max-width: 800px) {
+      .section-title-row {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .section-desc { justify-self: start; }
+    }
+
+    /* ============================================================
+       CARD GRID
+       ============================================================ */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
-      gap: clamp(1rem, 2vw, 1.5rem);
-      perspective: 1500px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(1.5rem, 2.5vw, 2rem);
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 3vw, 2.5rem);
     }
 
-    .grid-center {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
-      justify-content: center;
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    /* === Card === */
+    /* Featured grid for special cards */
+    .grid-feature {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 900px) {
+      .grid, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       EDITORIAL CARD
+       ============================================================ */
     .card {
-      --mx: 50;
-      --my: 50;
-      --flip: 0deg;
-      --lift: 0px;
-      --tilt-x: 0deg;
-      --tilt-y: 0deg;
-
       position: relative;
-      aspect-ratio: 5 / 7;
-      cursor: pointer;
-      transform-style: preserve-3d;
-      transform:
-        translateY(var(--lift))
-        rotateY(var(--flip))
-        rotateX(var(--tilt-x))
-        rotateY(var(--tilt-y));
-      transition: transform 0.8s var(--ease-out-expo);
-      will-change: transform;
-    }
-
-    .card:not(.flipped):hover {
-      --lift: -8px;
-    }
-
-    .card.flipped {
-      --flip: 180deg;
-      --tilt-x: 0deg;
-      --tilt-y: 0deg;
-    }
-
-    .card-face {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border-radius: 1.25rem;
-      overflow: hidden;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      padding: clamp(1.4rem, 2.2vw, 1.9rem);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 1rem;
+      background: var(--cream-soft);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: transform 0.6s var(--ease-out-expo),
+                  box-shadow 0.6s ease;
+      will-change: transform;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
     }
 
-    .card-front {
-      background:
-        linear-gradient(
-          145deg,
-          color-mix(in srgb, var(--card-color, white) 12%, var(--bg-card)) 0%,
-          var(--bg-card) 55%,
-          var(--bg-deep) 100%
-        );
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px -20px rgba(26, 22, 18, 0.15);
     }
 
-    .card-front::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle 320px at calc(var(--mx) * 1%) calc(var(--my) * 1%),
-        rgba(255, 255, 255, 0.22),
-        transparent 55%
-      );
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-      z-index: 2;
+    .section.dark .card {
+      background: var(--bg-dark-2);
+      border-color: var(--border-on-dark);
     }
 
-    .card-front::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: conic-gradient(
-        from calc(var(--mx) * 3.6deg) at 50% 50%,
-        var(--holo-1),
-        var(--holo-2),
-        var(--holo-3),
-        var(--holo-4),
-        var(--holo-5),
-        var(--holo-1)
-      );
-      opacity: 0;
-      transition: opacity 0.45s ease;
-      mix-blend-mode: color-dodge;
-      pointer-events: none;
-      z-index: 1;
+    .section.dark .card:hover {
+      box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
     }
 
-    .card:not(.flipped):hover .card-front::before { opacity: 1; }
-    .card:not(.flipped):hover .card-front::after  { opacity: 0.38; }
-
-    .card-back {
-      transform: rotateY(180deg);
-      background:
-        linear-gradient(
-          145deg,
-          color-mix(in srgb, var(--card-color, white) 22%, var(--bg-card)) 0%,
-          var(--bg-card) 75%
-        );
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .card-tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--card-color, var(--text-tertiary));
+    /* Color block */
+    .card-block {
       position: relative;
-      z-index: 3;
+      aspect-ratio: 4 / 3;
+      background: var(--card-color, var(--cream-mute));
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(1.5rem, 2.5vw, 2rem);
+      transition: aspect-ratio 0.8s var(--ease-out-expo);
+    }
+
+    /* Hover: color shift effect */
+    .card-block::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle 600px at var(--mx, 50%) var(--my, 50%),
+          rgba(255, 255, 255, 0.18),
+          transparent 50%
+        );
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+
+    .card:hover .card-block::before {
+      opacity: 1;
+    }
+
+    /* Subtle noise/grain on color block */
+    .card-block::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.5'/></svg>");
+      opacity: 0.06;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+
+    .card-number {
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-size: clamp(4rem, 8vw, 7rem);
+      line-height: 0.8;
+      color: rgba(26, 22, 18, 0.85);
+      letter-spacing: -0.04em;
+      position: relative;
+      z-index: 2;
+      mix-blend-mode: multiply;
+    }
+
+    /* White text on dark brand colors */
+    .card[data-card-light="true"] .card-number {
+      color: rgba(244, 237, 225, 0.95);
+      mix-blend-mode: normal;
+    }
+
+    .card-body {
+      padding: clamp(1.5rem, 2.5vw, 2rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .card-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
       display: flex;
       align-items: center;
-      gap: 0.5em;
+      gap: 0.5rem;
     }
 
-    .card-tag::before {
+    .section.dark .card-label { color: var(--ink-quiet); }
+
+    .card-label::before {
       content: "";
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--card-color, var(--text-tertiary));
-      box-shadow: 0 0 12px var(--card-color, transparent);
+      background: var(--card-color);
+      box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
     }
 
     .card-title {
-      font-family: "Fraunces", serif;
-      font-variation-settings: "opsz" 72;
+      font-family: "Instrument Serif", serif;
       font-weight: 400;
-      font-size: clamp(1.65rem, 2.2vw, 2.05rem);
+      font-size: clamp(1.75rem, 2.5vw, 2.4rem);
       line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-top: 0.85rem;
-      position: relative;
-      z-index: 3;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-top: 0.25rem;
     }
+
+    .section.dark .card-title { color: var(--cream); }
 
     .card-title em {
       font-style: italic;
-      color: var(--card-color, var(--text-primary));
     }
 
     .card-meta {
-      font-size: 0.88rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
-      position: relative;
-      z-index: 3;
+      font-size: clamp(0.95rem, 1vw, 1rem);
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin-top: 0.5rem;
     }
 
-    .card-flip-hint {
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      align-self: end;
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-      position: relative;
-      z-index: 3;
+    .section.dark .card-meta { color: var(--cream-mute); }
+
+    .card-foot {
       margin-top: auto;
-    }
-
-    .card-flip-hint::after {
-      content: "↻";
-      font-size: 1rem;
-      transition: transform 0.5s var(--ease-out-expo);
-    }
-
-    .card:not(.flipped):hover .card-flip-hint::after {
-      transform: rotate(180deg);
-    }
-
-    .card-back-content {
+      padding-top: 1.5rem;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      gap: 1.25rem;
-    }
-
-    .card-back-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.22em;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--card-color, var(--text-tertiary));
+      color: var(--ink-mid);
     }
 
-    .card-back-title {
-      font-family: "Fraunces", serif;
-      font-style: italic;
-      font-variation-settings: "opsz" 72;
-      font-weight: 400;
-      font-size: 1.2rem;
-      color: var(--text-primary);
-      max-width: 85%;
-    }
+    .section.dark .card-foot { color: var(--ink-quiet); }
 
-    .card-cta {
+    .card-foot-arrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.75em;
-      padding: 0.95em 1.7em;
-      background: var(--card-color, var(--text-primary));
-      color: var(--bg-deep);
-      border-radius: 999px;
-      font-family: "Geist Mono", monospace;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+      gap: 0.5rem;
+      transition: gap 0.4s var(--ease-out-expo);
     }
 
-    .card-cta:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 32px color-mix(in srgb, var(--card-color, white) 55%, transparent);
+    .card:hover .card-foot-arrow {
+      gap: 1rem;
     }
 
-    .card-cta::after {
+    .card-foot-arrow::after {
       content: "→";
-      transition: transform 0.3s ease;
+      font-family: "Instrument Sans", sans-serif;
     }
 
-    .card-cta:hover::after { transform: translateX(3px); }
-
-    .card-cta.disabled {
-      opacity: 0.6;
-      pointer-events: none;
+    /* ============================================================
+       FEATURE CARD (Schatten)
+       ============================================================ */
+    .card-feature {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      aspect-ratio: auto;
     }
 
-    .card-flip-back {
-      background: none;
-      border: 1px solid var(--border-mid);
-      border-radius: 999px;
-      color: var(--text-tertiary);
-      font-family: "Geist Mono", monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      cursor: pointer;
-      padding: 0.65em 1.3em;
-      transition: color 0.3s ease, border-color 0.3s ease;
+    .card-feature .card-block {
+      aspect-ratio: auto;
+      min-height: 480px;
+      padding: clamp(2rem, 4vw, 3.5rem);
     }
 
-    .card-flip-back:hover {
-      color: var(--text-primary);
-      border-color: var(--border-mid);
+    .card-feature .card-number {
+      font-size: clamp(6rem, 14vw, 12rem);
     }
 
-    /* === Footer === */
+    .card-feature .card-body {
+      padding: clamp(2rem, 4vw, 3.5rem);
+      justify-content: center;
+    }
+
+    .card-feature .card-title {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+    }
+
+    .card-feature .card-meta {
+      font-size: clamp(1rem, 1.1vw, 1.1rem);
+      max-width: 480px;
+    }
+
+    @media (max-width: 900px) {
+      .card-feature {
+        grid-template-columns: 1fr;
+      }
+      .card-feature .card-block {
+        min-height: 300px;
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
     .footer {
-      padding: clamp(4rem, 8vw, 6rem) clamp(1.25rem, 3vw, 2.5rem) 2rem;
-      max-width: 1400px;
+      background: var(--bg-dark);
+      color: var(--cream);
+      padding: clamp(6rem, 10vw, 9rem) clamp(1.25rem, 3vw, 2.5rem) 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1480px;
       margin: 0 auto;
-      border-top: 1px solid var(--border-subtle);
+    }
+
+    .footer-headline {
+      font-family: "Instrument Serif", serif;
+      font-weight: 400;
+      font-size: clamp(2.5rem, 8vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      max-width: 1100px;
+      color: var(--cream);
+    }
+
+    .footer-headline em {
+      font-style: italic;
+      color: var(--brand-aikano);
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
+      grid-template-columns: 1fr auto;
       gap: 3rem;
-      margin-bottom: 4rem;
+      margin-top: clamp(4rem, 7vw, 6rem);
+      padding-top: clamp(3rem, 5vw, 4rem);
+      border-top: 1px solid var(--border-on-dark);
       align-items: end;
     }
 
-    .footer-headline {
-      font-family: "Fraunces", serif;
-      font-variation-settings: "opsz" 144;
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(1.8rem, 4.5vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.025em;
-      color: var(--text-primary);
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 2.5rem 4rem;
     }
 
-    .footer-headline em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--holo-2), var(--holo-1));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
-    }
-
-    .footer-contact {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      font-size: 0.9rem;
-    }
-
-    .footer-contact-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.22em;
+    .footer-col-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 0.35rem;
+      color: var(--ink-quiet);
+      margin-bottom: 0.85rem;
     }
 
-    .footer-contact a {
-      color: var(--text-primary);
+    .footer-link {
+      display: block;
+      color: var(--cream);
       text-decoration: none;
-      border-bottom: 1px solid var(--border-mid);
-      transition: border-color 0.3s ease, color 0.3s ease;
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 2vw, 1.8rem);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      transition: color 0.3s ease, transform 0.4s var(--ease-out-expo);
       width: fit-content;
     }
 
-    .footer-contact a:hover {
+    .footer-link:hover {
       color: var(--brand-aikano);
-      border-color: var(--brand-aikano);
+      transform: translateX(6px);
     }
 
     .footer-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.65rem;
-      text-transform: uppercase;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-on-dark);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7rem;
       letter-spacing: 0.18em;
-      color: var(--text-tertiary);
+      text-transform: uppercase;
+      color: var(--ink-quiet);
       flex-wrap: wrap;
       gap: 1rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-subtle);
     }
 
-    /* === Reveals === */
+    @media (max-width: 700px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* ============================================================
+       REVEAL ANIMATION (GSAP fallback handled in CSS)
+       ============================================================ */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -738,93 +871,95 @@
         opacity 1s var(--ease-out-expo),
         transform 1s var(--ease-out-expo);
     }
+
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .reveal-left {
+    /* Hero name initial state */
+    .hero-name .line span {
+      transform: translateY(105%);
+      will-change: transform;
+    }
+
+    .hero-eyebrow,
+    .hero-tagline,
+    .hero-bottom {
       opacity: 0;
-      transform: translateX(-40px);
-      transition:
-        opacity 1s var(--ease-out-expo),
-        transform 1s var(--ease-out-expo);
-    }
-    .reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
     }
 
-    /* === Responsive === */
-    @media (max-width: 900px) {
-      .section-header {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        align-items: start;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .grid { grid-template-columns: 1fr; }
-      .grid-center { grid-template-columns: 1fr; }
-      .card {
-        aspect-ratio: 4 / 5;
-        max-width: 380px;
-        margin: 0 auto;
-        width: 100%;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .scroll-indicator { display: none; }
-      .hero-name { line-height: 0.92; }
-    }
-
+    /* Disable hover transforms during initial paint */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
       }
+      .hero-name .line span { transform: none; }
+      .hero-eyebrow, .hero-tagline, .hero-bottom { opacity: 1; }
     }
   </style>
 </head>
 <body>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
   <div class="scroll-progress" aria-hidden="true"></div>
-  <div class="cursor-blob" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <a href="#" class="nav-mark">Furkan Alkan</a>
+    <div class="nav-links">
+      <a href="#werk" data-magnetic>Werk</a>
+      <a href="#spiel" data-magnetic>Spiel</a>
+      <a href="#schatten" data-magnetic>Schatten</a>
+      <a href="mailto:hello@furkanalkan.com" data-magnetic>Kontakt</a>
+    </div>
+  </nav>
 
   <main>
 
-    <!-- HERO -->
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
     <section class="hero">
-      <div class="hero-top">
-        <span>Furkan Alkan · Index</span>
-        <span>Wuppertal · 2026</span>
-      </div>
+      <div class="hero-display">
+        <div class="hero-eyebrow">Index · Wuppertal · 2026</div>
 
-      <div class="hero-center">
-        <h1 class="hero-name" data-stagger>Werk<br />Spiel<br /><em>Schatten.</em></h1>
+        <h1 class="hero-name">
+          <span class="line"><span>Werk</span></span>
+          <span class="line"><span>Spiel</span></span>
+          <span class="line"><span><em>Schatten.</em></span></span>
+        </h1>
+
         <p class="hero-tagline">
-          <strong>Solo-Operator zwischen Code, Klang und Kommerz.</strong>
+          <strong>Solo-Operator zwischen Klang, Kommerz und Konzept.</strong>
           Multibrand-Architekt, Kleinunternehmer, experimentelles Musiklabel
-          im Eigenbau. Diese Seite ist <strong>Inventar</strong> — was ich
-          gebaut, gespielt habe und was das Tageslicht noch nicht gesehen hat.
+          im Eigenbau. Diese Seite ist <em>Inventar</em> — was ich gebaut,
+          gespielt habe und was das Tageslicht noch nicht gesehen hat.
         </p>
       </div>
 
       <div class="hero-bottom">
-        <div class="hero-meta">
-          <div>Index<span data-count="8">8</span></div>
-          <div>Kategorien<span data-count="3">3</span></div>
-          <div>Status<span>Live</span></div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span>Index</span>
+            <span class="num" data-count="8">0</span>
+          </div>
+          <div class="hero-stat">
+            <span>Kategorien</span>
+            <span class="num" data-count="3">0</span>
+          </div>
+          <div class="hero-stat">
+            <span>Stand</span>
+            <span class="num" style="font-style: italic;">live</span>
+          </div>
         </div>
-        <div class="scroll-indicator">Scroll</div>
+        <div class="hero-scroll">Scroll</div>
       </div>
     </section>
 
     <!-- Marquee 1 -->
     <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
+      <div class="marquee-track" data-marquee>
         <div class="marquee-item">Gebaut in Wuppertal</div>
         <div class="marquee-item">Geliefert weltweit</div>
         <div class="marquee-item">Gespielt aus Neugier</div>
@@ -834,215 +969,210 @@
       </div>
     </div>
 
-    <!-- WERK -->
+    <!-- ============================================================
+         WERK
+         ============================================================ -->
     <section class="section" id="werk">
-      <header class="section-header reveal-left">
-        <div>
-          <div class="section-number">01 — Werk</div>
-          <h2 class="section-title"><em>Werk</em></h2>
+      <header class="section-header reveal">
+        <div class="section-eyebrow">I — Werk</div>
+        <div class="section-title-row">
+          <h2 class="section-title">Werk.</h2>
+          <p class="section-desc">
+            Was Geld verdient, was Bestand hat, was ausgeliefert wurde.
+            Marken, Mandate, fundierte Arbeit.
+          </p>
         </div>
-        <p class="section-description">
-          Was Geld verdient, was Bestand hat, was ausgeliefert wurde.
-          Marken, Mandate, fundierte Arbeit.
-        </p>
       </header>
 
       <div class="grid">
 
-        <article class="card reveal" style="--card-color: var(--brand-handfaktur-shop);" data-card>
-          <div class="card-face card-front">
-            <div>
-              <div class="card-tag">Werk · 01</div>
-              <h3 class="card-title">Handfaktur <em>Shop</em></h3>
-            </div>
+        <!-- 01 Handfaktur Shop -->
+        <a class="card reveal" href="#" target="_blank" rel="noopener"
+           style="--card-color: #b8e8bc;" data-card>
+          <div class="card-block">
+            <span class="card-number">01</span>
+          </div>
+          <div class="card-body">
+            <div class="card-label">Apparel · Plattform</div>
+            <h3 class="card-title">Handfaktur <em>Shop</em></h3>
             <p class="card-meta">
-              Apparel-Brand mit Handschrift. Eigener Store,
-              eigene Designs, Operations in Personalunion.
+              Apparel-Brand mit Handschrift. Eine Plattform für handerlesene
+              Stücke — <em style="font-family: 'Instrument Serif'; font-style: italic;">von der Hand zur Hand</em>.
+              Das Prinzip, das auf diesem Planeten wortwörtlich alles trägt.
             </p>
-            <div class="card-flip-hint">Flip</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-back-content">
-              <div class="card-back-label">Handfaktur Shop</div>
-              <div class="card-back-title">Apparel · Shopify · 2024 —</div>
-              <a class="card-cta" href="#" target="_blank" rel="noopener">Besuchen</a>
-              <button class="card-flip-back" data-flip-back>Zurück</button>
+            <div class="card-foot">
+              <span>Seit 2024</span>
+              <span class="card-foot-arrow">Shop</span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="card reveal" style="--card-color: var(--brand-handfaktur-digital);" data-card>
-          <div class="card-face card-front">
-            <div>
-              <div class="card-tag">Werk · 02</div>
-              <h3 class="card-title">Handfaktur <em>Digital</em></h3>
-            </div>
+        <!-- 02 Handfaktur Digital -->
+        <a class="card reveal" href="#" target="_blank" rel="noopener"
+           style="--card-color: #5b8def;" data-card data-card-light="true">
+          <div class="card-block">
+            <span class="card-number">02</span>
+          </div>
+          <div class="card-body">
+            <div class="card-label">Dienste · SMB</div>
+            <h3 class="card-title">Handfaktur <em>Digital</em></h3>
             <p class="card-meta">
-              Digitale Dienste für SMBs — Google Business Profile,
-              Websites, Ads. Handwerk trifft Digital.
+              Digitale Dienste für kleine Unternehmen — Google Business Profile,
+              Websites, Ads. Mein Ziel ist eure Unabhängigkeit. Damit ihr
+              eure Systeme irgendwann selbst führt, statt für immer in der
+              Falle zu sitzen.
             </p>
-            <div class="card-flip-hint">Flip</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-back-content">
-              <div class="card-back-label">Handfaktur Digital</div>
-              <div class="card-back-title">SMB Services · DACH · 2024 —</div>
-              <a class="card-cta" href="#" target="_blank" rel="noopener">Anfragen</a>
-              <button class="card-flip-back" data-flip-back>Zurück</button>
+            <div class="card-foot">
+              <span>DACH</span>
+              <span class="card-foot-arrow">Anfragen</span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="card reveal" style="--card-color: var(--brand-academic);" data-card>
-          <div class="card-face card-front">
-            <div>
-              <div class="card-tag">Werk · 03</div>
-              <h3 class="card-title">Wirtschafts<em>psychologie</em> B.A.</h3>
-            </div>
+        <!-- 03 Wirtschaftspsychologie B.A. -->
+        <a class="card reveal" href="#" target="_blank" rel="noopener"
+           style="--card-color: #d9c89e;" data-card>
+          <div class="card-block">
+            <span class="card-number">03</span>
+          </div>
+          <div class="card-body">
+            <div class="card-label">Bachelor of Arts</div>
+            <h3 class="card-title">Wirtschafts<em>psychologie</em></h3>
             <p class="card-meta">
-              Projektzertifikat zur C-Suite-Rollenbesetzung.
-              Bachelorthese: Battle&nbsp;Pass als Verkaufskonzept.
+              Bachelorthese zur Zerlegung des <em style="font-family: 'Instrument Serif'; font-style: italic;">Battle Pass</em>
+              in seine psychologischen Bausteine — und ihre Übertragung in
+              andere Geschäftsmodelle. Im Schnittfeld von Applied Business
+              Psychology, Consumer Psychology, Gamification, Marketing und
+              Strategic Management.
             </p>
-            <div class="card-flip-hint">Flip</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-back-content">
-              <div class="card-back-label">Bachelor of Arts</div>
-              <div class="card-back-title">Forschung · Strategie · Konsum­psychologie</div>
-              <a class="card-cta" href="#" target="_blank" rel="noopener">These ansehen</a>
-              <button class="card-flip-back" data-flip-back>Zurück</button>
+            <div class="card-foot">
+              <span>Akademie</span>
+              <span class="card-foot-arrow">These</span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="card reveal" style="--card-color: var(--brand-aikano);" data-card>
-          <div class="card-face card-front">
-            <div>
-              <div class="card-tag">Werk · 04</div>
-              <h3 class="card-title">Aikano <em>Records</em></h3>
-            </div>
+        <!-- 04 Aikano Records -->
+        <a class="card reveal" href="#" target="_blank" rel="noopener"
+           style="--card-color: #f5cca8;" data-card>
+          <div class="card-block">
+            <span class="card-number">04</span>
+          </div>
+          <div class="card-body">
+            <div class="card-label">Musiklabel · Eigenbau</div>
+            <h3 class="card-title">Aikano <em>Records</em></h3>
             <p class="card-meta">
               Experimentelles Musiklabel. Konzeptalben mit fiktiven
               Künstlerpersonas — Jonas True, Luis Soul, Monara.
-              Eigenständiges Universum, mehrsprachig.
+              Ein eigenständiges Universum, mehrsprachig erzählt.
             </p>
-            <div class="card-flip-hint">Flip</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-back-content">
-              <div class="card-back-label">Aikano Records</div>
-              <div class="card-back-title">Experimentelles Musiklabel · Konzeptalben · 2023 —</div>
-              <a class="card-cta" href="#" target="_blank" rel="noopener">Releases</a>
-              <button class="card-flip-back" data-flip-back>Zurück</button>
+            <div class="card-foot">
+              <span>Seit 2023</span>
+              <span class="card-foot-arrow">Releases</span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="card reveal" style="--card-color: var(--brand-werkzeug);" data-card>
-          <div class="card-face card-front">
-            <div>
-              <div class="card-tag">Werk · 05</div>
-              <h3 class="card-title">Alkan <em>Werkzeug</em></h3>
-            </div>
+        <!-- 05 Alkan Werkzeug -->
+        <a class="card reveal" href="#" target="_blank" rel="noopener"
+           style="--card-color: #d3161c;" data-card data-card-light="true">
+          <div class="card-block">
+            <span class="card-number">05</span>
+          </div>
+          <div class="card-body">
+            <div class="card-label">Familienbetrieb · Industrie</div>
+            <h3 class="card-title">Alkan <em>Werkzeug</em></h3>
             <p class="card-meta">
-              Familien-E-Commerce, fast zwei Jahrzehnte alt.
-              Werkzeugzentrum mit modernem AEO-Stack auf gewachsener Substanz.
+              Wir beliefern Deutschland seit fast zwei Jahrzehnten mit
+              Spezialwerkzeugen — mit Exzellenz, Qualität und Sorgfalt.
+              Ein Familienbetrieb, der weiß, was er tut.
             </p>
-            <div class="card-flip-hint">Flip</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-back-content">
-              <div class="card-back-label">Werkzeugzentrum</div>
-              <div class="card-back-title">Familienbetrieb · Wuppertal · seit Jahren</div>
-              <a class="card-cta" href="#" target="_blank" rel="noopener">Shop</a>
-              <button class="card-flip-back" data-flip-back>Zurück</button>
+            <div class="card-foot">
+              <span>Wuppertal · DE</span>
+              <span class="card-foot-arrow">Shop</span>
             </div>
           </div>
-        </article>
+        </a>
 
       </div>
     </section>
 
-    <!-- Marquee 2 -->
+    <!-- Marquee 2 (transition to dark) -->
     <div class="marquee reverse" aria-hidden="true">
-      <div class="marquee-track">
-        <div class="marquee-item">Code</div>
+      <div class="marquee-track" data-marquee>
         <div class="marquee-item">Klang</div>
         <div class="marquee-item">Kommerz</div>
         <div class="marquee-item">Konzept</div>
-        <div class="marquee-item">Code</div>
         <div class="marquee-item">Klang</div>
         <div class="marquee-item">Kommerz</div>
         <div class="marquee-item">Konzept</div>
       </div>
     </div>
 
-    <!-- SPIEL -->
-    <section class="section" id="spiel">
-      <header class="section-header reveal-left">
-        <div>
-          <div class="section-number">02 — Spiel</div>
-          <h2 class="section-title"><em>Spiel</em></h2>
+    <!-- ============================================================
+         SPIEL (dark inverted)
+         ============================================================ -->
+    <section class="section dark" id="spiel">
+      <header class="section-header reveal">
+        <div class="section-eyebrow">II — Spiel</div>
+        <div class="section-title-row">
+          <h2 class="section-title">Spiel.</h2>
+          <p class="section-desc">
+            Was aus Neugier entsteht. Konzepte und Werkzeuge die
+            irgendwo zwischen Hobby und Strategie leben.
+          </p>
         </div>
-        <p class="section-description">
-          Was aus Neugier entsteht. Versuche, Werkzeuge,
-          Eigenbau zwischen Hobby und Strategie.
-        </p>
       </header>
 
       <div class="grid">
 
-        <article class="card reveal" style="--card-color: var(--brand-chunkplan);" data-card>
-          <div class="card-face card-front">
-            <div>
-              <div class="card-tag">Spiel · 06</div>
-              <h3 class="card-title">Chunkplan <em>App</em></h3>
-            </div>
+        <!-- 06 Chunkplan -->
+        <a class="card reveal" href="#" target="_blank" rel="noopener"
+           style="--card-color: #2dd4a8;" data-card>
+          <div class="card-block">
+            <span class="card-number">06</span>
+          </div>
+          <div class="card-body">
+            <div class="card-label">App · Android</div>
+            <h3 class="card-title">Chunk<em>plan</em></h3>
             <p class="card-meta">
-              Flutter-Android-App. Zeit in Chunks geplant, getrackt, gelebt.
-              Freemium + €2/Monat. Home-Screen-Widget inklusive.
+              Eine App, die Zeit in Chunks zerlegt. Damit der Tag
+              wieder dir gehört — nicht andersrum.
             </p>
-            <div class="card-flip-hint">Flip</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-back-content">
-              <div class="card-back-label">Chunkplan Diary</div>
-              <div class="card-back-title">Flutter · sqflite · 2025 —</div>
-              <a class="card-cta" href="#" target="_blank" rel="noopener">Play Store</a>
-              <button class="card-flip-back" data-flip-back>Zurück</button>
+            <div class="card-foot">
+              <span>Play Store</span>
+              <span class="card-foot-arrow">Laden</span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="card reveal" style="--card-color: var(--brand-game);" data-card>
-          <div class="card-face card-front">
-            <div>
-              <div class="card-tag">Spiel · 07 · On Hold</div>
-              <h3 class="card-title">En<em>sorena</em></h3>
-            </div>
+        <!-- 07 Ensorena -->
+        <a class="card reveal" href="#" data-card
+           style="--card-color: #8b5cf6;" data-card-light="true">
+          <div class="card-block">
+            <span class="card-number">07</span>
+          </div>
+          <div class="card-body">
+            <div class="card-label">Spielkonzept · Vault</div>
+            <h3 class="card-title">En<em>sorena</em></h3>
             <p class="card-meta">
-              Komplette Spielidee. MMO-/Battle-Royale-Konzept auf AAA-Effort —
-              Game Loop, Lobby-System, Charaktere, Mechaniken über Jahre
-              ausgearbeitet. Wartet auf Budget.
+              Eine ausgearbeitete Spielwelt. Charaktere, Mechaniken,
+              Lobby-System, kompletter Game Loop — alles gedacht,
+              im Vault. Wartet auf den richtigen Moment.
             </p>
-            <div class="card-flip-hint">Flip</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-back-content">
-              <div class="card-back-label">Ensorena</div>
-              <div class="card-back-title">Game Concept · in Vault · Trigger: Funding</div>
-              <span class="card-cta disabled">Vault</span>
-              <button class="card-flip-back" data-flip-back>Zurück</button>
+            <div class="card-foot">
+              <span>On Hold</span>
+              <span class="card-foot-arrow">Vault</span>
             </div>
           </div>
-        </article>
+        </a>
 
       </div>
     </section>
 
-    <!-- Marquee 3 -->
+    <!-- Marquee 3 (back to cream) -->
     <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
+      <div class="marquee-track" data-marquee>
         <div class="marquee-item">Was unter dem Boden läuft</div>
         <div class="marquee-item">Trägt was darüber steht</div>
         <div class="marquee-item">Was unter dem Boden läuft</div>
@@ -1050,56 +1180,70 @@
       </div>
     </div>
 
-    <!-- SCHATTEN -->
+    <!-- ============================================================
+         SCHATTEN (feature card)
+         ============================================================ -->
     <section class="section" id="schatten">
-      <header class="section-header reveal-left">
-        <div>
-          <div class="section-number">03 — Schatten</div>
-          <h2 class="section-title"><em>Schatten</em></h2>
+      <header class="section-header reveal">
+        <div class="section-eyebrow">III — Schatten</div>
+        <div class="section-title-row">
+          <h2 class="section-title">Schatten.</h2>
+          <p class="section-desc">
+            Was niemand fragt, aber alles trägt. Persönliche Arbeit,
+            Handwerk im Hintergrund.
+          </p>
         </div>
-        <p class="section-description">
-          Was niemand fragt, aber alles ermöglicht.
-          Infrastruktur, Wurzeln, Material das im Werden ist.
-        </p>
       </header>
 
-      <div class="grid grid-center">
+      <div class="grid grid-feature">
 
-        <article class="card reveal" style="--card-color: var(--brand-infra);" data-card>
-          <div class="card-face card-front">
-            <div>
-              <div class="card-tag">Schatten · 08</div>
-              <h3 class="card-title">Self-hosted <em>Infra</em></h3>
-            </div>
+        <a class="card card-feature reveal" href="#" data-card
+           style="--card-color: #c084fc;" data-card-light="true">
+          <div class="card-block">
+            <span class="card-number">08</span>
+          </div>
+          <div class="card-body">
+            <div class="card-label">Handwerk · Sprache</div>
+            <h3 class="card-title">Mehrsprachiges <em>Songwriting</em></h3>
             <p class="card-meta">
-              n8n auf eigener VPS. Cloudflare Tunnel + Zero Trust Access,
-              UFW gehärtet, Webhook-Bypass-Policies. Eigentum statt Miete.
+              Lieder geschrieben in Deutsch, Spanisch, Französisch,
+              Swahili, Aramäisch, Russisch. Jede Sprache ist eine andere
+              Art zu denken, ein anderer Klang im Mund, eine andere
+              Logik in der Strophe. Was unter den Aikano-Releases liegt
+              und sie überhaupt trägt — der Schatten unter dem Universum.
             </p>
-            <div class="card-flip-hint">Flip</div>
-          </div>
-          <div class="card-face card-back">
-            <div class="card-back-content">
-              <div class="card-back-label">Homelab</div>
-              <div class="card-back-title">n8n · Cloudflare · UFW</div>
-              <a class="card-cta" href="#" target="_blank" rel="noopener">Setup</a>
-              <button class="card-flip-back" data-flip-back>Zurück</button>
+            <div class="card-foot">
+              <span>Sechs Sprachen · laufend</span>
+              <span class="card-foot-arrow">Lesen</span>
             </div>
           </div>
-        </article>
+        </a>
 
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <h2 class="footer-headline reveal">
+        Wenn etwas <em>widerhallt</em> —<br>
+        schreib mir.
+      </h2>
+
       <div class="footer-grid reveal">
-        <h2 class="footer-headline">
-          Wenn etwas widerhallt — <em>schreib mir</em>.
-        </h2>
-        <div class="footer-contact">
-          <span class="footer-contact-label">Kontakt</span>
-          <a href="mailto:hello@furkanalkan.com">hello@furkanalkan.com</a>
-          <a href="https://www.linkedin.com/in/furkan-alkan-389916182/" target="_blank" rel="noopener">LinkedIn</a>
+        <div class="footer-links">
+          <div>
+            <div class="footer-col-label">Direkt</div>
+            <a class="footer-link" href="mailto:hello@furkanalkan.com" data-magnetic>hello@furkanalkan.com</a>
+          </div>
+          <div>
+            <div class="footer-col-label">Sozial</div>
+            <a class="footer-link" href="https://www.linkedin.com/in/furkan-alkan-389916182/" target="_blank" rel="noopener" data-magnetic>LinkedIn</a>
+          </div>
         </div>
       </div>
 
@@ -1107,160 +1251,265 @@
         <span>© 2026 Furkan Alkan · Wuppertal</span>
         <span>Built solo</span>
       </div>
-    </footer>
-  </main>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
   <script>
-    /* === Hero per-letter stagger === */
-    (function () {
-      const el = document.querySelector("[data-stagger]");
-      if (!el) return;
-      const walk = (node) => {
-        Array.from(node.childNodes).forEach((n) => {
-          if (n.nodeType === Node.TEXT_NODE) {
-            const frag = document.createDocumentFragment();
-            [...n.textContent].forEach((ch) => {
-              if (ch === " ") {
-                frag.appendChild(document.createTextNode(" "));
-              } else {
-                const span = document.createElement("span");
-                span.className = "hero-letter";
-                span.textContent = ch;
-                frag.appendChild(span);
+    /* ============================================================
+       LENIS — smooth scroll
+       ============================================================ */
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    /* Hook Lenis into GSAP ScrollTrigger */
+    gsap.registerPlugin(ScrollTrigger);
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    /* Anchor links use Lenis */
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const id = link.getAttribute("href");
+        if (id.length > 1) {
+          const target = document.querySelector(id);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -40 });
+          }
+        }
+      });
+    });
+
+    /* ============================================================
+       HERO — line reveal
+       ============================================================ */
+    gsap.to(".hero-name .line span", {
+      y: 0,
+      duration: 1.2,
+      stagger: 0.12,
+      ease: "expo.out",
+      delay: 0.2,
+    });
+
+    gsap.to(".hero-eyebrow", {
+      opacity: 1,
+      duration: 1,
+      ease: "expo.out",
+      delay: 0.1,
+    });
+
+    gsap.to(".hero-tagline", {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "expo.out",
+      delay: 1.0,
+    });
+
+    gsap.to(".hero-bottom", {
+      opacity: 1,
+      duration: 1,
+      ease: "expo.out",
+      delay: 1.4,
+    });
+
+    /* ============================================================
+       SCROLL REVEALS
+       ============================================================ */
+    const revealEls = document.querySelectorAll(".reveal");
+    revealEls.forEach((el, i) => {
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 85%",
+        once: true,
+        onEnter: () => {
+          el.classList.add("visible");
+          // Stagger cards within same grid
+          const card = el.closest(".card");
+          if (card) {
+            const siblings = [...card.parentElement.querySelectorAll(".card")];
+            const idx = siblings.indexOf(card);
+            gsap.fromTo(
+              el,
+              { opacity: 0, y: 50 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "expo.out",
+                delay: idx * 0.1,
               }
-            });
-            n.replaceWith(frag);
-          } else if (n.nodeType === Node.ELEMENT_NODE && n.tagName !== "BR") {
-            walk(n);
+            );
           }
-        });
-      };
-      walk(el);
-      el.querySelectorAll(".hero-letter").forEach((span, i) => {
-        span.style.animationDelay = `${0.15 + i * 0.035}s`;
-      });
-    })();
-
-    /* === Cards: holo + flip === */
-    document.querySelectorAll("[data-card]").forEach((card) => {
-      let rafId = null;
-
-      card.addEventListener("mousemove", (e) => {
-        if (card.classList.contains("flipped")) return;
-        if (rafId) cancelAnimationFrame(rafId);
-        rafId = requestAnimationFrame(() => {
-          const rect = card.getBoundingClientRect();
-          const x = ((e.clientX - rect.left) / rect.width) * 100;
-          const y = ((e.clientY - rect.top) / rect.height) * 100;
-          card.style.setProperty("--mx", x.toFixed(2));
-          card.style.setProperty("--my", y.toFixed(2));
-          card.style.setProperty("--tilt-x", `${((y - 50) * -0.08).toFixed(2)}deg`);
-          card.style.setProperty("--tilt-y", `${((x - 50) *  0.08).toFixed(2)}deg`);
-        });
-      });
-
-      card.addEventListener("mouseleave", () => {
-        card.style.setProperty("--mx", 50);
-        card.style.setProperty("--my", 50);
-        card.style.setProperty("--tilt-x", "0deg");
-        card.style.setProperty("--tilt-y", "0deg");
-      });
-
-      card.addEventListener("click", (e) => {
-        if (e.target.closest("a, button")) return;
-        card.style.setProperty("--tilt-x", "0deg");
-        card.style.setProperty("--tilt-y", "0deg");
-        card.classList.toggle("flipped");
+        },
       });
     });
 
-    document.querySelectorAll("[data-flip-back]").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        btn.closest(".card").classList.remove("flipped");
-      });
+    /* ============================================================
+       MARQUEE — scroll velocity hook
+       ============================================================ */
+    document.querySelectorAll("[data-marquee]").forEach((track) => {
+      let baseDuration = 40;
+      track.style.setProperty("--mq-duration", `${baseDuration}s`);
     });
 
-    /* === Scroll reveals (with stagger inside grids) === */
-    const grids = new Map();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target;
-          const grid = el.closest(".grid");
-          if (grid) {
-            const idx = grids.get(grid) || 0;
-            grids.set(grid, idx + 1);
-            setTimeout(() => el.classList.add("visible"), idx * 110);
-          } else {
-            el.classList.add("visible");
-          }
-          observer.unobserve(el);
+    let scrollVelocity = 0;
+    let lastScroll = 0;
+    let velocityRaf = null;
+
+    lenis.on("scroll", ({ scroll }) => {
+      const delta = scroll - lastScroll;
+      lastScroll = scroll;
+      scrollVelocity = delta;
+
+      if (velocityRaf) cancelAnimationFrame(velocityRaf);
+      velocityRaf = requestAnimationFrame(applyVelocity);
+    });
+
+    function applyVelocity() {
+      document.querySelectorAll("[data-marquee]").forEach((track) => {
+        const boost = Math.min(20, Math.abs(scrollVelocity) * 0.1);
+        const newDur = Math.max(8, 40 - boost);
+        track.style.animationDuration = `${newDur}s`;
+      });
+      // Decay
+      scrollVelocity *= 0.95;
+      if (Math.abs(scrollVelocity) > 0.5) {
+        velocityRaf = requestAnimationFrame(applyVelocity);
+      } else {
+        document.querySelectorAll("[data-marquee]").forEach((track) => {
+          track.style.animationDuration = "40s";
         });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
-    );
+      }
+    }
 
-    document.querySelectorAll(".reveal, .reveal-left").forEach((el) => observer.observe(el));
-
-    /* === Scroll progress === */
-    const progress = document.querySelector(".scroll-progress");
-    const updateProgress = () => {
-      const h = document.documentElement;
-      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
-      progress.style.setProperty("--progress", scrolled.toFixed(3));
-    };
-    document.addEventListener("scroll", updateProgress, { passive: true });
-    updateProgress();
-
-    /* === Cursor follower === */
+    /* ============================================================
+       CUSTOM CURSOR
+       ============================================================ */
     (function () {
       if (window.matchMedia("(hover: none)").matches) return;
-      const blob = document.querySelector(".cursor-blob");
-      if (!blob) return;
-      let x = window.innerWidth / 2;
-      let y = window.innerHeight / 2;
-      let tx = x;
-      let ty = y;
+
+      const dot = document.querySelector(".cursor-dot");
+      const ring = document.querySelector(".cursor-ring");
+      if (!dot || !ring) return;
+
+      let mx = window.innerWidth / 2;
+      let my = window.innerHeight / 2;
+      let dx = mx, dy = my;
+      let rx = mx, ry = my;
+
       document.addEventListener("mousemove", (e) => {
-        tx = e.clientX;
-        ty = e.clientY;
+        mx = e.clientX;
+        my = e.clientY;
       });
-      const tick = () => {
-        x += (tx - x) * 0.12;
-        y += (ty - y) * 0.12;
-        blob.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+
+      function tick() {
+        dx += (mx - dx) * 0.6;
+        dy += (my - dy) * 0.6;
+        rx += (mx - rx) * 0.15;
+        ry += (my - ry) * 0.15;
+        dot.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+        ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
         requestAnimationFrame(tick);
-      };
+      }
       tick();
+
+      /* Expand on hover-targets */
+      document.querySelectorAll("a, button, [data-card], [data-magnetic]").forEach((el) => {
+        el.addEventListener("mouseenter", () => ring.classList.add("expanded"));
+        el.addEventListener("mouseleave", () => ring.classList.remove("expanded"));
+      });
     })();
 
-    /* === Hero stat counters === */
-    document.querySelectorAll("[data-count]").forEach((el) => {
-      const target = parseInt(el.dataset.count, 10);
-      const start = performance.now();
-      const dur = 1400;
-      const animate = (t) => {
-        const p = Math.min(1, (t - start) / dur);
-        const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(eased * target);
-        if (p < 1) requestAnimationFrame(animate);
-      };
-      setTimeout(() => requestAnimationFrame(animate), 1800);
+    /* ============================================================
+       MAGNETIC LINKS
+       ============================================================ */
+    (function () {
+      if (window.matchMedia("(hover: none)").matches) return;
+      document.querySelectorAll("[data-magnetic]").forEach((el) => {
+        const strength = 0.35;
+        el.addEventListener("mousemove", (e) => {
+          const rect = el.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const dx = (e.clientX - cx) * strength;
+          const dy = (e.clientY - cy) * strength;
+          gsap.to(el, { x: dx, y: dy, duration: 0.6, ease: "expo.out" });
+        });
+        el.addEventListener("mouseleave", () => {
+          gsap.to(el, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.4)" });
+        });
+      });
+    })();
+
+    /* ============================================================
+       CARD — radial light follow
+       ============================================================ */
+    document.querySelectorAll("[data-card]").forEach((card) => {
+      const block = card.querySelector(".card-block");
+      if (!block) return;
+      card.addEventListener("mousemove", (e) => {
+        const rect = block.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        block.style.setProperty("--mx", `${x}%`);
+        block.style.setProperty("--my", `${y}%`);
+      });
     });
 
-    /* === Hero parallax === */
-    const heroName = document.querySelector(".hero-name");
-    const heroTagline = document.querySelector(".hero-tagline");
-    if (heroName && heroTagline) {
-      document.addEventListener("scroll", () => {
-        const y = window.scrollY;
-        if (y > 1000) return;
-        heroName.style.transform = `translateY(${y * 0.15}px)`;
-        heroTagline.style.transform = `translateY(${y * 0.08}px)`;
-      }, { passive: true });
-    }
+    /* ============================================================
+       NUMBER COUNTERS
+       ============================================================ */
+    document.querySelectorAll("[data-count]").forEach((el) => {
+      const target = parseInt(el.dataset.count, 10);
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 95%",
+        once: true,
+        onEnter: () => {
+          gsap.to({ val: 0 }, {
+            val: target,
+            duration: 1.8,
+            ease: "expo.out",
+            onUpdate() {
+              el.textContent = Math.round(this.targets()[0].val);
+            },
+          });
+        },
+      });
+    });
+
+    /* ============================================================
+       SCROLL PROGRESS
+       ============================================================ */
+    const progress = document.querySelector(".scroll-progress");
+    lenis.on("scroll", ({ scroll, limit }) => {
+      const p = limit > 0 ? scroll / limit : 0;
+      progress.style.setProperty("--progress", p.toFixed(3));
+    });
+
+    /* ============================================================
+       SECTION CHANGE — invert mix-blend cursor near dark sections
+       (cursor uses mix-blend-mode difference already, so it auto-inverts)
+       ============================================================ */
   </script>
 </body>
 </html>
