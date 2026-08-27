@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Furkan Alkan · The Collection</title>
-  <meta name="description" content="Portfolio von Furkan Alkan. Eine Sammlung aus Werk und Spiel." />
+  <meta name="description" content="Portfolio of Furkan Alkan. A collection of work and play." />
 
-  <link rel="canonical" href="https://furkanalkan.com/" />
+  <link rel="canonical" href="https://furkanalkan.com/en/" />
   <link rel="alternate" hreflang="de" href="https://furkanalkan.com/" />
   <link rel="alternate" hreflang="en" href="https://furkanalkan.com/en/" />
   <link rel="alternate" hreflang="x-default" href="https://furkanalkan.com/" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="de_DE" />
-  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="de_DE" />
   <meta property="og:title" content="Furkan Alkan · The Collection" />
-  <meta property="og:description" content="Portfolio von Furkan Alkan. Eine Sammlung aus Werk und Spiel." />
-  <meta property="og:url" content="https://furkanalkan.com/" />
+  <meta property="og:description" content="Portfolio of Furkan Alkan. A collection of work and play." />
+  <meta property="og:url" content="https://furkanalkan.com/en/" />
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23a855f7'/%3E%3Cstop offset='.5' stop-color='%23f5cca8'/%3E%3Cstop offset='1' stop-color='%2358e6c9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='%230a0614'/%3E%3Ctext x='50%25' y='66%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia, serif' font-style='italic' font-weight='700' font-size='22' fill='url(%23g)'%3EF%3C/text%3E%3C/svg%3E" />
 
@@ -717,7 +717,7 @@
       background: var(--bg-card);
     }
 
-    /* BILD-EBENE: --card-img setzen, dann erscheint das Bild hier */
+    /* IMAGE LAYER: set --card-img and the image shows up here */
     .card-art-img {
       position: absolute;
       inset: 0;
@@ -735,7 +735,7 @@
       filter: saturate(1) contrast(1.08);
     }
 
-    /* Farbschleier: liegt IMMER über dem Bild, hält alle Karten einheitlich */
+    /* Colour wash: always sits above the image, keeps all cards consistent */
     .card-art-wash {
       position: absolute;
       inset: 0;
@@ -754,7 +754,7 @@
 
     .card:hover .card-art-wash { opacity: 0.82; }
 
-    /* Fallback, wenn kein Bild gesetzt ist */
+    /* Fallback when no image is set */
     .card-art-fallback {
       position: absolute;
       inset: 0;
@@ -784,7 +784,7 @@
       z-index: 4;
     }
 
-    /* Holo-Folie */
+    /* Holo foil */
     .card-art::after {
       content: "";
       position: absolute;
@@ -983,7 +983,7 @@
     }
 
     /* ============================================================
-       CREDO · Haltungs-Sektionen
+       CREDO · stance sections
        ============================================================ */
     .credo {
       max-width: 1480px;
@@ -1343,13 +1343,13 @@
   <nav class="nav">
     <a href="#" class="nav-mark">Furkan Alkan</a>
     <div class="nav-links">
-      <a href="#werk">Werk</a>
-      <a href="#spiel">Spiel</a>
-      <a href="#kontakt">Kontakt</a>
+      <a href="#work">Work</a>
+      <a href="#play">Play</a>
+      <a href="#contact">Contact</a>
     </div>
     <div class="nav-right">
       <div class="nav-counter"><span data-card-counter>0/9</span></div>
-      <a class="lang-toggle" href="/en/" hreflang="en" lang="en" aria-label="Switch to English">EN</a>
+      <a class="lang-toggle" href="/" hreflang="de" lang="de" aria-label="Zu Deutsch wechseln">DE</a>
     </div>
   </nav>
 
@@ -1366,14 +1366,14 @@
 
       <div class="hero-title-block">
         <h1 class="hero-title">
-          <span class="line"><span>Werk &amp;</span></span>
-          <span class="line"><span><em>Spiel.</em></span></span>
+          <span class="line"><span>Work &amp;</span></span>
+          <span class="line"><span><em>Play.</em></span></span>
         </h1>
 
         <p class="hero-tagline">
-          <strong>Zwischen Klang, Kommerz und Konzept.</strong>
+          <strong>Between sound, commerce and concept.</strong>
           <br> E-Commerce Manager, Digital Architect, Concept Designer.
-          <br> Diese Seite ist <em>die Sammlung</em>, neun Karten, zwei Kategorien, ein Spielfeld.
+          <br> This page is <em>the collection</em>: nine cards, two categories, one table.
         </p>
       </div>
 
@@ -1384,7 +1384,7 @@
             <span class="hero-stat-val" data-count="9">0</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-label">Kategorien</span>
+            <span class="hero-stat-label">Categories</span>
             <span class="hero-stat-val" data-count="2">0</span>
           </div>
           <div class="hero-stat">
@@ -1403,23 +1403,23 @@
     <!-- Marquee 1 -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track" data-marquee>
-        <div class="marquee-item">Gebaut in Wuppertal</div>
-        <div class="marquee-item">Geliefert weltweit</div>
-        <div class="marquee-item">Gespielt aus Neugier</div>
-        <div class="marquee-item">Gebaut in Wuppertal</div>
-        <div class="marquee-item">Geliefert weltweit</div>
-        <div class="marquee-item">Gespielt aus Neugier</div>
+        <div class="marquee-item">Built in Wuppertal</div>
+        <div class="marquee-item">Shipped worldwide</div>
+        <div class="marquee-item">Played out of curiosity</div>
+        <div class="marquee-item">Built in Wuppertal</div>
+        <div class="marquee-item">Shipped worldwide</div>
+        <div class="marquee-item">Played out of curiosity</div>
       </div>
     </div>
 
     <!-- ============================================================
          WERK
          ============================================================ -->
-    <section class="section" id="werk">
+    <section class="section" id="work">
       <header class="section-header reveal">
-        <div class="section-eyebrow">Pack I &middot; Werk</div>
+        <div class="section-eyebrow">Pack I &middot; Work</div>
         <div class="section-title-row">
-          <h2 class="section-title"><em>Werk.</em></h2>
+          <h2 class="section-title"><em>Work.</em></h2>
           <div class="section-meta">
             <span class="section-meta-line">4 Cards</span>
             <span class="section-meta-line">1 Legendary &middot; 1 Epic &middot; 2 Rare</span>
@@ -1445,20 +1445,20 @@
             </span>
           </div>
           <div class="card-body">
-            <span class="card-type">Familienbetrieb &middot; Industrie</span>
+            <span class="card-type">Family business &middot; Industry</span>
             <h3 class="card-title">Alkan <em>Werkzeug</em></h3>
             <p class="card-meta">
-              Wir beliefern Deutschland seit fast zwei Jahrzehnten mit
-              Spezialwerkzeugen, mit Exzellenz, Qualität und Sorgfalt.
-              Ein Familienbetrieb, der weiß, was er tut.
+              Supplying Germany with specialist tools for almost two
+              decades, built on quality and care. A family business that
+              knows exactly what it does.
             </p>
             <div class="card-stats">
               <div class="card-stat">
-                <span class="card-stat-label">Seit</span>
+                <span class="card-stat-label">Since</span>
                 <span class="card-stat-value">2007</span>
               </div>
               <div class="card-stat">
-                <span class="card-stat-label">Reichw.</span>
+                <span class="card-stat-label">Reach</span>
                 <span class="card-stat-value">EU</span>
               </div>
               <div class="card-stat">
@@ -1466,7 +1466,7 @@
                 <span class="card-stat-value">Live</span>
               </div>
             </div>
-            <p class="card-flavor">„Werkzeuge die halten. Hände die wissen."</p>
+            <p class="card-flavor">"Tools that last. Hands that know."</p>
           </div>
         </a>
 
@@ -1486,20 +1486,20 @@
             </span>
           </div>
           <div class="card-body">
-            <span class="card-type">Marke &middot; Plattform</span>
+            <span class="card-type">Brand &middot; Platform</span>
             <h3 class="card-title">Handfaktur <em>Shop</em></h3>
             <p class="card-meta">
-              Eigene Marke für Produkte mit Handschrift. Textil, Print,
-              3D. Die Palette wächst mit dem, was mich interessiert und
-              was ich selbst benutzen würde.
+              My own brand for products with a signature. Textile, print,
+              3D. The range grows with whatever interests me and whatever
+              I would actually use myself.
             </p>
             <div class="card-stats">
               <div class="card-stat">
-                <span class="card-stat-label">Seit</span>
+                <span class="card-stat-label">Since</span>
                 <span class="card-stat-value">2025</span>
               </div>
               <div class="card-stat">
-                <span class="card-stat-label">Reichweite</span>
+                <span class="card-stat-label">Reach</span>
                 <span class="card-stat-value">EU</span>
               </div>
               <div class="card-stat">
@@ -1507,7 +1507,7 @@
                 <span class="card-stat-value">Live</span>
               </div>
             </div>
-            <p class="card-flavor">„Warum keinen Shop mit Produkten, an die man glaubt?"</p>
+            <p class="card-flavor">"Why not run a shop with products you believe in?"</p>
           </div>
         </a>
 
@@ -1527,13 +1527,13 @@
             </span>
           </div>
           <div class="card-body">
-            <span class="card-type">Service &middot; KMU</span>
+            <span class="card-type">Service &middot; Small business</span>
             <h3 class="card-title">Handfaktur <em>Digital</em></h3>
             <p class="card-meta">
-              Digitale Dienste für KMU. Mein Ziel ist eure Unabhängigkeit,
-              von Big Tech, von Kostenfallen, von teuren Abos und am Ende
-              auch von mir. Damit ihr eure Systeme selbst führt, wartet
-              und ausbaut.
+              Digital services for small businesses. My goal is your
+              independence: from big tech, from cost traps, from expensive
+              subscriptions and eventually from me too. So you run,
+              maintain and extend your systems yourself.
             </p>
             <div class="card-stats">
               <div class="card-stat">
@@ -1541,7 +1541,7 @@
                 <span class="card-stat-value">2025</span>
               </div>
               <div class="card-stat">
-                <span class="card-stat-label">Reichweite</span>
+                <span class="card-stat-label">Reach</span>
                 <span class="card-stat-value">DACH</span>
               </div>
               <div class="card-stat">
@@ -1549,7 +1549,7 @@
                 <span class="card-stat-value">Live</span>
               </div>
             </div>
-            <p class="card-flavor">„Keine Sorge, erreichbar bleibe ich trotzdem."</p>
+            <p class="card-flavor">"Don't worry, I stay reachable anyway."</p>
           </div>
         </a>
 
@@ -1569,12 +1569,12 @@
             </span>
           </div>
           <div class="card-body">
-            <span class="card-type">Bachelorthese &middot; Forschung</span>
-            <h3 class="card-title">Wirtschafts<em>psychologie</em></h3>
+            <span class="card-type">Bachelor thesis &middot; Research</span>
+            <h3 class="card-title">Business <em>Psychology</em></h3>
             <p class="card-meta">
-              Zerlegung des Battle Pass in seine psychologischen Bausteine
-              und deren Übertragung auf andere Geschäftsmodelle. Die
-              Grundlage für vieles, was ich danach gebaut habe.
+              Breaking the battle pass down into its psychological parts
+              and transferring them to other business models. The
+              foundation for a lot of what I built afterwards.
             </p>
             <div class="card-stats">
               <div class="card-stat">
@@ -1582,7 +1582,7 @@
                 <span class="card-stat-value">2021</span>
               </div>
               <div class="card-stat">
-                <span class="card-stat-label">Felder</span>
+                <span class="card-stat-label">Fields</span>
                 <span class="card-stat-value">5</span>
               </div>
               <div class="card-stat">
@@ -1590,7 +1590,7 @@
                 <span class="card-stat-value">Yes</span>
               </div>
             </div>
-            <p class="card-flavor">„Consumer Psych &middot; Gamification &middot; Marketing"</p>
+            <p class="card-flavor">"Consumer psych &middot; Gamification &middot; Marketing"</p>
           </div>
         </a>
 
@@ -1598,41 +1598,41 @@
     </section>
 
     <!-- ============================================================
-         CREDO I · Haltung
+         CREDO I · stance
          ============================================================ -->
-    <section class="credo" id="haltung">
+    <section class="credo" id="stance">
       <h2 class="credo-lead reveal">
-        <b>Drei Dinge,</b> auf die ich mich festlege.
+        <b>Three things</b> I commit to.
       </h2>
 
       <div class="credo-grid">
         <div class="credo-item reveal" style="--credo-accent: #5b8def;">
-          <span class="credo-key">01 &middot; Besitz</span>
-          <h3 class="credo-title">Es gehört euch</h3>
+          <span class="credo-key">01 &middot; Ownership</span>
+          <h3 class="credo-title">It belongs to you</h3>
           <p class="credo-text">
-            Was ich baue, läuft ohne mich weiter. Zugänge, Daten und
-            Dokumentation liegen bei euch, nicht bei mir. Wer mich weiter
-            will, soll mich wollen und nicht brauchen.
+            What I build keeps running without me. Access, data and
+            documentation sit with you, not with me. Anyone who keeps
+            working with me should want to, not have to.
           </p>
         </div>
 
         <div class="credo-item reveal" style="--credo-accent: #b8e8bc;">
-          <span class="credo-key">02 &middot; Klarheit</span>
-          <h3 class="credo-title">Offene Kommunikation</h3>
+          <span class="credo-key">02 &middot; Clarity</span>
+          <h3 class="credo-title">Open communication</h3>
           <p class="credo-text">
-            Was nicht geht, sage ich vorher. Ein benanntes Problem
-            kostet weniger als ein verschwiegenes. Rückfragen sind mir
-            lieber als Annahmen.
+            If something will not work, I say so upfront. A problem you
+            name costs less than one you keep quiet. I would rather ask
+            twice than assume once.
           </p>
         </div>
 
         <div class="credo-item reveal" style="--credo-accent: #f5cca8;">
-          <span class="credo-key">03 &middot; Nutzen</span>
-          <h3 class="credo-title">Am Ende klickt ein Mensch</h3>
+          <span class="credo-key">03 &middot; Use</span>
+          <h3 class="credo-title">A human clicks in the end</h3>
           <p class="credo-text">
-            Ich arbeite immer gerne nutzerzentriert, denn Prozesse sind am
-            Ende des Tages darauf ausgelegt, von Menschen bedient zu werden.
-            Und die Zufriedenheit dabei spielt langfristig immer eine Rolle.
+            I like working user-first, because at the end of the day
+            processes are made to be operated by people. And whether that
+            feels good always matters in the long run.
           </p>
         </div>
       </div>
@@ -1641,23 +1641,23 @@
     <!-- Marquee 2 -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track" data-marquee>
-        <div class="marquee-item"><em>Klang</em></div>
-        <div class="marquee-item"><em>Kommerz</em></div>
-        <div class="marquee-item"><em>Konzept</em></div>
-        <div class="marquee-item"><em>Klang</em></div>
-        <div class="marquee-item"><em>Kommerz</em></div>
-        <div class="marquee-item"><em>Konzept</em></div>
+        <div class="marquee-item"><em>Sound</em></div>
+        <div class="marquee-item"><em>Commerce</em></div>
+        <div class="marquee-item"><em>Concept</em></div>
+        <div class="marquee-item"><em>Sound</em></div>
+        <div class="marquee-item"><em>Commerce</em></div>
+        <div class="marquee-item"><em>Concept</em></div>
       </div>
     </div>
 
     <!-- ============================================================
          SPIEL
          ============================================================ -->
-    <section class="section" id="spiel">
+    <section class="section" id="play">
       <header class="section-header reveal">
-        <div class="section-eyebrow">Pack II &middot; Spiel</div>
+        <div class="section-eyebrow">Pack II &middot; Play</div>
         <div class="section-title-row">
-          <h2 class="section-title"><em>Spiel.</em></h2>
+          <h2 class="section-title"><em>Play.</em></h2>
           <div class="section-meta">
             <span class="section-meta-line">5 Cards</span>
             <span class="section-meta-line">1 Legendary &middot; 1 Epic &middot; 2 Rare &middot; 1 Common</span>
@@ -1683,17 +1683,17 @@
             </span>
           </div>
           <div class="card-body">
-            <span class="card-type">Musiklabel &middot; Konzept</span>
+            <span class="card-type">Music label &middot; Concept</span>
             <h3 class="card-title">Aikano <em>Records</em></h3>
             <p class="card-meta">
-              Ein Label, entstanden aus dem Interesse an philosophischer
-              Wahrheit. Erdachte Künstler, die Botschaften über Klang
-              tragen, jeder verwurzelt in einer Denkschule, die Menschen
-              seit Jahrtausenden begleitet.
+              A label born from an interest in philosophical truth.
+              Invented artists carrying messages through sound, each one
+              rooted in a school of thought that has guided people for
+              thousands of years.
             </p>
             <div class="card-stats">
               <div class="card-stat">
-                <span class="card-stat-label">Seit</span>
+                <span class="card-stat-label">Since</span>
                 <span class="card-stat-value">2025</span>
               </div>
               <div class="card-stat">
@@ -1705,7 +1705,7 @@
                 <span class="card-stat-value">Live</span>
               </div>
             </div>
-            <p class="card-flavor">„Philosophie, die man fühlen kann."</p>
+            <p class="card-flavor">"Philosophy you can feel."</p>
           </div>
         </a>
 
@@ -1725,17 +1725,17 @@
             </span>
           </div>
           <div class="card-body">
-            <span class="card-type">Spielwelt &middot; Entwicklung</span>
+            <span class="card-type">Game world &middot; Development</span>
             <h3 class="card-title">En<em>sorena</em></h3>
             <p class="card-meta">
-              MMO x Battle Royale x Extraction Shooter. Ein Lebensprojekt,
-              das immer weiter wächst. Game Development ist und bleibt ein
-              zeitintensives Hobby, aber am Ende spürt die Gaming Community
-              die Liebe, die man in ein Projekt steckt.
+              MMO x battle royale x extraction shooter. A lifetime project
+              that keeps growing. Game development is and stays a
+              time-heavy hobby, but in the end the gaming community feels
+              the love you put into a project.
             </p>
             <div class="card-stats">
               <div class="card-stat">
-                <span class="card-stat-label">Release Ziel</span>
+                <span class="card-stat-label">Target</span>
                 <span class="card-stat-value">2032</span>
               </div>
               <div class="card-stat">
@@ -1744,10 +1744,10 @@
               </div>
               <div class="card-stat">
                 <span class="card-stat-label">Status</span>
-                <span class="card-stat-value">In Arbeit</span>
+                <span class="card-stat-value">In progress</span>
               </div>
             </div>
-            <p class="card-flavor">„Fertig wird es, wenn es gut ist."</p>
+            <p class="card-flavor">"It is done when it is good."</p>
           </div>
         </a>
 
@@ -1770,9 +1770,9 @@
             <span class="card-type">App &middot; Android</span>
             <h3 class="card-title">Chunk<em>plan</em></h3>
             <p class="card-meta">
-              Eine App, die den Tag in Chunks zerlegt. Aufgaben, Reflexion
-              und Tagebuch an einem Ort, ohne Punktesystem und ohne
-              schlechtes Gewissen. Damit der Tag wieder dir gehört.
+              An app that cuts the day into chunks. Tasks, reflection and
+              journal in one place, no point system and no guilt trip. So
+              the day belongs to you again.
             </p>
             <div class="card-stats">
               <div class="card-stat">
@@ -1780,7 +1780,7 @@
                 <span class="card-stat-value">2025</span>
               </div>
               <div class="card-stat">
-                <span class="card-stat-label">Plattf.</span>
+                <span class="card-stat-label">Platform</span>
                 <span class="card-stat-value">Android</span>
               </div>
               <div class="card-stat">
@@ -1788,7 +1788,7 @@
                 <span class="card-stat-value">Live</span>
               </div>
             </div>
-            <p class="card-flavor">„Plane in Blöcken. Lebe in Momenten."</p>
+            <p class="card-flavor">"Plan in blocks. Live in moments."</p>
           </div>
         </a>
 
@@ -1808,12 +1808,12 @@
             </span>
           </div>
           <div class="card-body">
-            <span class="card-type">Studienprojekt &middot; Breda</span>
+            <span class="card-type">Student project &middot; Breda</span>
             <h3 class="card-title">Lost <em>Lily</em></h3>
             <p class="card-meta">
-              2.5D Bike-Stunt-Platformer, das erste abteilungsübergreifende
-              Projekt des Semesters. Ich war Teil des Design- und
-              Production-Teams.
+              2.5D bike stunt platformer and the first cross-department
+              project of the semester. I was part of the design and
+              production team.
             </p>
             <div class="card-stats">
               <div class="card-stat">
@@ -1821,15 +1821,15 @@
                 <span class="card-stat-value">2021</span>
               </div>
               <div class="card-stat">
-                <span class="card-stat-label">Rolle</span>
+                <span class="card-stat-label">Role</span>
                 <span class="card-stat-value">Des &amp; Prod</span>
               </div>
               <div class="card-stat">
                 <span class="card-stat-label">Status</span>
-                <span class="card-stat-value">Spielbar</span>
+                <span class="card-stat-value">Playable</span>
               </div>
             </div>
-            <p class="card-flavor">„Ein Motorrad, ein Freizeitpark, viel Physik."</p>
+            <p class="card-flavor">"One motorbike, one theme park, a lot of physics."</p>
           </div>
         </a>
 
@@ -1849,12 +1849,12 @@
             </span>
           </div>
           <div class="card-body">
-            <span class="card-type">Studienprojekt &middot; Breda</span>
+            <span class="card-type">Student project &middot; Breda</span>
             <h3 class="card-title">Ricotta <em>Get Going</em></h3>
             <p class="card-meta">
-              Ruhiger Stealth-Platformer mit Kameras, Rätseln und
-              patrouillierenden Ratten. Design- und Production-Team,
-              mein Schwerpunkt lag im Sound Design.
+              A calm stealth platformer with cameras, puzzles and
+              patrolling rats. Design and production team, my focus was
+              on sound design.
             </p>
             <div class="card-stats">
               <div class="card-stat">
@@ -1862,15 +1862,15 @@
                 <span class="card-stat-value">2021</span>
               </div>
               <div class="card-stat">
-                <span class="card-stat-label">Rolle</span>
+                <span class="card-stat-label">Role</span>
                 <span class="card-stat-value">Sound</span>
               </div>
               <div class="card-stat">
                 <span class="card-stat-label">Status</span>
-                <span class="card-stat-value">Spielbar</span>
+                <span class="card-stat-value">Playable</span>
               </div>
             </div>
-            <p class="card-flavor">„Leise laufen, weit kommen."</p>
+            <p class="card-flavor">"Move quietly, get further."</p>
           </div>
         </a>
 
@@ -1878,47 +1878,44 @@
     </section>
 
     <!-- ============================================================
-         CREDO II · Abseits
+         CREDO II · beyond
          ============================================================ -->
-    <section class="credo" id="abseits">
+    <section class="credo" id="beyond">
       <h2 class="credo-lead reveal">
-        <b>Und drei,</b> die erklären, warum das alles zusammengehört.
+        <b>And three</b> that explain why all of it belongs together.
       </h2>
 
       <div class="credo-grid">
         <div class="credo-item reveal" style="--credo-accent: #8b5cf6;">
-          <span class="credo-key">01 &middot; Bauen</span>
-          <h3 class="credo-title">Verstehen durch die Praxis</h3>
+          <span class="credo-key">01 &middot; Building</span>
+          <h3 class="credo-title">Understanding through practice</h3>
           <p class="credo-text">
-            Wer wollte nicht schon mal eine App bauen? Welcher Gamer hat
-            nicht über ein Spiel nachgedacht, das er entwickeln wollte?
-            Welcher Songwriter würde seine Lieder nicht gerne bekannt
-            machen? Und warum sollte man keinen Shop haben mit Produkten,
-            an die man glaubt. Die meisten wollen es, ich mache es halt nur.
+            Who has not wanted to build an app at some point? Which gamer
+            has not thought up a game they wanted to make? Which songwriter
+            would not want their songs heard? And why not run a shop with
+            products you believe in. Most people want to. I just do it.
           </p>
         </div>
 
         <div class="credo-item reveal" style="--credo-accent: #2dd4a8;">
-          <span class="credo-key">02 &middot; Nachhaltigkeit</span>
-          <h3 class="credo-title">Etwas das bleibt für die Welt</h3>
+          <span class="credo-key">02 &middot; Longevity</span>
+          <h3 class="credo-title">Something that stays</h3>
           <p class="credo-text">
-            Ob es Spiele sind, die den Leuten Spaß machen, Musik, die
-            jemanden mit einer reinen Intention bewegt, oder eine App, die
-            das Leben vereinfacht. Alles Dinge, die ich mit gutem Gewissen
-            schaffen und mit kleiner Wartung hinterlassen kann. Das erfüllt
-            mich einfach.
+            Whether it is games people enjoy, music that moves someone
+            with an honest intention, or an app that makes life simpler.
+            All things I can make with a clear conscience and leave behind
+            with little maintenance. That is what fulfils me.
           </p>
         </div>
 
         <div class="credo-item reveal" style="--credo-accent: #f0b429;">
-          <span class="credo-key">03 &middot; Systeme</span>
-          <h3 class="credo-title">Regeln vor Ergebnissen</h3>
+          <span class="credo-key">03 &middot; Systems</span>
+          <h3 class="credo-title">Rules before results</h3>
           <p class="credo-text">
-            Spiele, Märkte und Unternehmen sind Regelwerke mit Menschen
-            darin. Wer die Regeln erkennt, ob nun offizielle oder
-            inoffizielle, kann das Spiel optimieren, ausbauen und
-            umgestalten. Und ich liebe es, Regelwerke auszubauen, etwas
-            anderes ist ein Spiel eigentlich auch nicht.
+            Games, markets and companies are rule sets with people inside
+            them. Whoever spots the rules, official or unofficial, can
+            optimise the game, extend it and reshape it. And I love
+            extending rule sets. A game is not much else either.
           </p>
         </div>
       </div>
@@ -1929,20 +1926,20 @@
   <!-- ============================================================
        FOOTER
        ============================================================ -->
-  <footer class="footer" id="kontakt">
+  <footer class="footer" id="contact">
     <h2 class="footer-headline reveal">
-      Du hast die <em>Sammlung</em> durchgespielt.<br>
-      Was dich widerhallt, <em>schreib mir</em>.
+      You played through the <em>collection</em>.<br>
+      Whatever resonates, <em>write to me</em>.
     </h2>
 
     <div class="footer-grid reveal">
       <div class="footer-links">
         <div>
-          <div class="footer-col-label">Direkt</div>
+          <div class="footer-col-label">Direct</div>
           <a class="footer-link" href="mailto:mail@furkanalkan.com">mail@furkanalkan.com</a>
         </div>
         <div>
-          <div class="footer-col-label">Sozial</div>
+          <div class="footer-col-label">Social</div>
           <a class="footer-link" href="https://www.linkedin.com/in/furkan-alkan-389916182/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
@@ -1958,7 +1955,7 @@
        SECRET CARD
        ============================================================ -->
   <div class="secret-overlay" id="secretOverlay">
-    <button class="secret-close" id="secretClose" aria-label="Schließen">&times;</button>
+    <button class="secret-close" id="secretClose" aria-label="Close">&times;</button>
     <div class="secret-card">
       <div>
         <div class="secret-head">
@@ -1966,14 +1963,14 @@
           <span>Mythic &#9733;&#9733;&#9733;&#9733;&#9733;</span>
         </div>
         <div class="secret-glyph">?</div>
-        <h3 class="secret-title">Der <em>Schatten</em></h3>
+        <h3 class="secret-title">The <em>Shadow</em></h3>
         <p class="secret-text">
-          Der Teil der Sammlung, der noch keinen Rahmen hat. Angefangenes,
-          Verworfenes, Halbfertiges. Manches wird eine Karte, manches
-          bleibt hier.
+          The part of the collection that has no frame yet. Started,
+          discarded, half finished. Some of it becomes a card, some of it
+          stays here.
         </p>
         <p class="secret-flavor">
-          „Frag nach, wenn du neugierig bist."
+          "Ask, if you are curious."
         </p>
       </div>
       <div class="secret-foot">
